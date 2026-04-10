@@ -30,7 +30,7 @@
   --radius-xs: 5px;
 }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
 body {
   background: var(--bg);
   color: var(--cream);
@@ -1438,9 +1438,94 @@ footer {
   border-radius: 3px;
 }
 
-/* ── LANG SHOW/HIDE ── */
-[data-lang="id"] .txt-en { display: none; }
-[data-lang="en"] .txt-id { display: none; }
+/* ── COUNTDOWN TIMER ── */
+.bundle-timer {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  background: rgba(59,189,214,0.055);
+  border: 1px solid rgba(59,189,214,0.15);
+  border-radius: 10px;
+  padding: .9rem 1.2rem;
+  margin-bottom: 1.4rem;
+  flex-wrap: wrap;
+}
+.timer-label {
+  font-size: .54rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--ocean);
+  font-weight: 500;
+  font-family: var(--sans);
+  flex-shrink: 0;
+}
+.timer-label::before {
+  content: '';
+  display: inline-block;
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--ocean);
+  box-shadow: 0 0 6px var(--ocean);
+  margin-right: .55rem;
+  animation: fcPulse 2s ease-in-out infinite;
+  vertical-align: middle;
+}
+.timer-digits {
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+}
+.timer-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .1rem;
+}
+.timer-num {
+  font-family: var(--serif);
+  font-size: 1.6rem;
+  font-weight: 300;
+  color: var(--cream);
+  line-height: 1;
+  letter-spacing: -.02em;
+  min-width: 2.4rem;
+  text-align: center;
+}
+.timer-colon {
+  font-family: var(--serif);
+  font-size: 1.4rem;
+  color: rgba(59,189,214,0.4);
+  line-height: 1;
+  margin-bottom: .6rem;
+}
+.timer-sub {
+  font-size: .42rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--cream-muted);
+  font-family: var(--sans);
+  font-weight: 400;
+}
+@media (max-width: 860px) {
+  .bundle-timer { padding: .75rem 1rem; gap: .8rem; }
+  .timer-num { font-size: 1.35rem; min-width: 2rem; }
+  .timer-label { font-size: .5rem; }
+}
+
+/* ── AUDIENCE LEVEL BADGES ── */
+.audience-type {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+}
+.audience-type::before {
+  content: '';
+  display: inline-block;
+  width: 4px; height: 4px;
+  border-radius: 50%;
+  background: var(--ocean);
+  opacity: .7;
+}
 
 /* ── ULTIMATE BUNDLE VISUAL ── */
 .uv-wrap {
@@ -1950,6 +2035,1058 @@ footer {
   opacity: 0.45;
   filter: grayscale(0.3);
 }
+
+/* ═══════════════════════════════════════════════════════
+   AURELEA — PREMIUM EDITORIAL UPGRADE v2
+   Dark Luxury · Cinematic · Brand-Signature · Mobile-First
+═══════════════════════════════════════════════════════ */
+
+/* ── DESIGN TOKENS ── */
+:root {
+  --surface-deep: #020912;
+  --line:         rgba(214,232,248,0.065);
+  --line-faint:   rgba(214,232,248,0.038);
+}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar { width: 2px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: rgba(59,189,214,0.2); border-radius: 2px; }
+
+/* ── GLOBAL DEPTH ── */
+body::before {
+  content: '';
+  position: fixed; inset: 0; z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 90% 55% at 50% -8%,  rgba(18,65,155,0.22)  0%, transparent 65%),
+    radial-gradient(ellipse 55% 45% at 88% 92%,  rgba(8,46,115,0.15)   0%, transparent 60%),
+    radial-gradient(ellipse 45% 35% at 8%  60%,  rgba(59,189,214,0.06) 0%, transparent 55%);
+}
+
+/* ── NAV UPGRADE ── */
+.nav-logo { letter-spacing: .35em; font-size: 1.05rem; }
+nav.scrolled {
+  background: rgba(2,9,20,0.97) !important;
+  box-shadow: 0 1px 0 rgba(59,189,214,0.07), 0 4px 60px rgba(0,0,0,0.6) !important;
+  border-bottom-color: rgba(214,232,248,0.055) !important;
+}
+.nav-cta {
+  background: linear-gradient(135deg, var(--ocean) 0%, #4DCCE2 100%) !important;
+  padding: .52rem 1.5rem !important;
+  box-shadow: 0 4px 18px rgba(59,189,214,0.22) !important;
+}
+
+/* ── BUTTONS ── */
+.btn-primary {
+  background: linear-gradient(135deg, var(--ocean) 0%, #4DCCE2 100%) !important;
+  padding: 1rem 2.8rem !important;
+  letter-spacing: .2em !important;
+  font-size: .67rem !important;
+  box-shadow: 0 8px 32px rgba(59,189,214,0.28) !important;
+  transition: transform .3s, box-shadow .3s !important;
+}
+.btn-primary:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 18px 50px rgba(59,189,214,0.38) !important;
+}
+.btn-outline {
+  border-color: rgba(214,232,248,0.14) !important;
+  padding: 1rem 2.8rem !important;
+  letter-spacing: .18em !important;
+  font-size: .67rem !important;
+}
+.btn-outline:hover {
+  border-color: rgba(59,189,214,0.32) !important;
+  background: rgba(59,189,214,0.055) !important;
+}
+
+/* ── HERO TYPOGRAPHY ── */
+.hero { gap: clamp(2.5rem, 6vw, 7rem) !important; }
+.hero-eyebrow { letter-spacing: .42em !important; margin-bottom: 2.4rem !important; }
+.hero-headline {
+  font-size: clamp(4rem, 8.8vw, 10.5rem) !important;
+  line-height: .83 !important;
+  letter-spacing: -.03em !important;
+}
+.hero-rule {
+  background: linear-gradient(90deg, rgba(59,189,214,0.4), transparent) !important;
+  margin: 2.2rem 0 !important;
+}
+.hero-sub {
+  font-size: clamp(.87rem, 1.4vw, 1rem) !important;
+  line-height: 2.05 !important;
+  color: rgba(138,170,200,0.78) !important;
+}
+.hero-social-proof { margin-top: 2.8rem !important; }
+
+/* ── HERO PANEL (NEW) ── */
+.hero-visual { height: 82vh !important; max-height: 760px !important; display: flex !important; align-items: stretch !important; }
+.hv-panel {
+  width: 100%;
+  background: linear-gradient(160deg, rgba(8,20,45,0.97) 0%, rgba(3,10,24,0.99) 100%);
+  border: 1px solid rgba(214,232,248,0.08);
+  border-radius: 24px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem 1.8rem 1.6rem;
+  box-shadow: 0 40px 120px rgba(0,0,0,0.7), inset 0 1px 0 rgba(214,232,248,0.06);
+}
+.hv-bg-glow-top {
+  position: absolute; top: -80px; right: -60px;
+  width: 420px; height: 350px; border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(59,189,214,0.11), transparent 70%);
+  filter: blur(60px); pointer-events: none;
+  animation: auroraPulse 9s ease-in-out infinite;
+}
+.hv-bg-glow-bot {
+  position: absolute; bottom: -60px; left: -40px;
+  width: 320px; height: 260px; border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(15,55,150,0.16), transparent 70%);
+  filter: blur(50px); pointer-events: none;
+  animation: auroraPulse 11s ease-in-out 4s infinite;
+}
+.hv-noise-overlay {
+  position: absolute; inset: 0; pointer-events: none;
+  opacity: 0.018;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 160px;
+}
+.hv-meta-top {
+  display: flex; justify-content: space-between; align-items: center;
+  width: 100%; z-index: 2;
+}
+.hv-brand-tag {
+  font-size: .53rem; letter-spacing: .28em; text-transform: uppercase;
+  color: var(--ocean); font-weight: 500; font-family: var(--sans);
+  opacity: .85;
+}
+.hv-issue-tag {
+  font-size: .5rem; letter-spacing: .22em; text-transform: uppercase;
+  color: var(--cream-muted); font-weight: 300; font-family: var(--sans);
+}
+/* focal number */
+.hv-focal {
+  position: relative; z-index: 2;
+  display: flex; flex-direction: column; align-items: center; gap: .6rem;
+  flex: 1; justify-content: center;
+}
+.hv-focal-ring {
+  position: absolute; border-radius: 50%; border: 1px solid rgba(59,189,214,0.1);
+  pointer-events: none;
+}
+.hv-r1 { width: 260px; height: 260px; }
+.hv-r2 { width: 380px; height: 380px; border-color: rgba(59,189,214,0.05); border-style: dashed; animation: bv-spin 30s linear infinite; }
+.hv-focal-glow {
+  position: absolute; width: 200px; height: 200px; border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(59,189,214,0.12), transparent 70%);
+  filter: blur(30px); pointer-events: none;
+  animation: auroraPulse 7s ease-in-out 2s infinite;
+}
+.hv-focal-num {
+  font-family: var(--serif);
+  font-size: clamp(6rem, 14vw, 11rem);
+  font-weight: 300;
+  color: var(--cream);
+  line-height: .85;
+  letter-spacing: -.04em;
+  z-index: 1;
+}
+.hv-focal-num em { color: var(--ocean); font-style: normal; }
+.hv-focal-sub {
+  font-size: .6rem; letter-spacing: .3em; text-transform: uppercase;
+  color: var(--cream-muted); font-weight: 400; font-family: var(--sans);
+  z-index: 1;
+}
+/* product strip */
+.hv-strip {
+  display: flex; align-items: stretch; width: 100%; z-index: 2;
+  border: 1px solid rgba(214,232,248,0.08);
+  border-radius: 12px; overflow: hidden;
+  background: rgba(4,12,28,0.8);
+}
+.hv-strip-item {
+  flex: 1; display: flex; align-items: center; gap: .7rem;
+  padding: .9rem .85rem;
+  transition: background .3s;
+}
+.hv-strip-item:hover { background: rgba(59,189,214,0.04); }
+.hv-strip-active { background: rgba(59,189,214,0.045) !important; }
+.hv-strip-divider {
+  width: 1px; background: rgba(214,232,248,0.06); flex-shrink: 0;
+}
+.hv-strip-num {
+  font-family: var(--serif); font-size: .75rem; color: var(--ocean);
+  font-weight: 300; opacity: .7; flex-shrink: 0;
+}
+.hv-strip-body { display: flex; flex-direction: column; gap: .15rem; flex: 1; min-width: 0; }
+.hv-strip-name {
+  font-size: .62rem; letter-spacing: .06em; color: var(--cream);
+  font-weight: 400; font-family: var(--sans); white-space: nowrap;
+  overflow: hidden; text-overflow: ellipsis;
+}
+.hv-strip-meta {
+  font-size: .5rem; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--cream-muted); font-weight: 300; font-family: var(--sans);
+}
+.hv-strip-badge {
+  font-size: .45rem; letter-spacing: .16em; text-transform: uppercase;
+  color: var(--cream-muted); background: rgba(214,232,248,0.06);
+  border: 1px solid rgba(214,232,248,0.08);
+  padding: .18rem .55rem; border-radius: 3px;
+  font-weight: 500; flex-shrink: 0; font-family: var(--sans);
+}
+.hv-badge-active {
+  color: var(--ocean) !important;
+  background: var(--ocean-dim) !important;
+  border-color: rgba(59,189,214,0.22) !important;
+}
+/* bottom status */
+.hv-bottom {
+  display: flex; align-items: center; gap: .6rem; z-index: 2;
+  padding-top: .8rem;
+}
+.hv-pulse-dot {
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--ocean); box-shadow: 0 0 8px var(--ocean);
+  animation: fcPulse 2.5s ease-in-out infinite;
+}
+.hv-bottom-text {
+  font-size: .52rem; letter-spacing: .24em; text-transform: uppercase;
+  color: var(--cream-muted); font-weight: 400; font-family: var(--sans);
+}
+
+/* ── STATS UPGRADE ── */
+.stats-section { background: var(--surface-deep) !important; border-color: var(--line-faint) !important; position: relative !important; }
+.stats-section::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--line), transparent);
+}
+.stat-num { font-size: clamp(3rem, 5.5vw, 5rem) !important; letter-spacing: -.04em !important; }
+.stat-item { padding: 2.8rem clamp(1rem, 3.5vw, 4rem) !important; border-color: var(--line-faint) !important; }
+.stat-label { font-size: .53rem !important; letter-spacing: .3em !important; opacity: .6 !important; }
+
+/* ── SECTION RHYTHM ── */
+.section { padding: clamp(6rem, 12vw, 10rem) var(--px) !important; }
+.section-alt { background: var(--surface-deep) !important; position: relative !important; }
+.section-alt::before {
+  content: ''; position: absolute; top: 0; left: var(--px); right: var(--px); height: 1px;
+  background: linear-gradient(90deg, transparent, var(--line), transparent);
+}
+.section-tag { font-size: .55rem !important; letter-spacing: .4em !important; margin-bottom: 1.8rem !important; opacity: .82; }
+.section-headline { font-size: clamp(3rem, 6vw, 5.8rem) !important; letter-spacing: -.03em !important; line-height: .87 !important; margin-bottom: 1.6rem !important; }
+.section-sub { font-size: .88rem !important; line-height: 2.05 !important; color: rgba(138,170,200,0.72) !important; max-width: 400px !important; }
+
+/* ── TESTIMONIALS EDITORIAL ── */
+.testimonials-grid {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 0 !important;
+  border: 1px solid var(--line) !important;
+  border-radius: 16px !important;
+  overflow: hidden !important;
+  margin-top: 5rem !important;
+  background: transparent !important;
+}
+.testimonial-card { border: none !important; border-radius: 0 !important; background: rgba(7,21,39,0.5) !important; padding: 2.6rem !important; gap: 1.6rem !important; transition: background .4s !important; }
+.testimonial-card:hover { background: rgba(10,26,54,0.8) !important; }
+.testimonial-card:first-child {
+  grid-column: 1 / -1 !important;
+  border-bottom: 1px solid var(--line) !important;
+  background: linear-gradient(140deg, rgba(10,26,52,0.85) 0%, rgba(5,14,32,0.9) 100%) !important;
+  padding: 3.2rem 3.5rem !important;
+  display: grid !important;
+  grid-template-columns: 1fr auto !important;
+  column-gap: 2.5rem !important;
+  row-gap: 1.4rem !important;
+}
+.testimonial-card:first-child .testimonial-stars { grid-column: 1; grid-row: 1; }
+.testimonial-card:first-child .testimonial-tag  { grid-column: 2; grid-row: 1; align-self: start; }
+.testimonial-card:first-child .testimonial-text { grid-column: 1 / -1; grid-row: 2; font-size: 1.32rem !important; line-height: 1.58 !important; }
+.testimonial-card:first-child .testimonial-author { grid-column: 1 / -1; grid-row: 3; }
+.testimonial-card:nth-child(2) { border-right: 1px solid var(--line) !important; }
+.testimonial-text { font-size: 1.06rem !important; line-height: 1.68 !important; }
+.testimonial-stars { font-size: .82rem !important; }
+
+/* ── GALLERY EDITORIAL ── */
+.gallery-section { background: var(--surface-deep) !important; }
+.gallery-grid {
+  display: grid !important;
+  grid-template-columns: 1.5fr 1fr 1fr !important;
+  grid-template-rows: 1fr 1fr !important;
+  gap: .5rem !important;
+  height: clamp(360px, 55vw, 600px) !important;
+  max-width: 1140px !important;
+}
+.gallery-item { aspect-ratio: unset !important; border-radius: 10px !important; border-color: var(--line-faint) !important; }
+.gallery-item:nth-child(1) { grid-column: 1; grid-row: 1 / 3; }
+.gallery-item:nth-child(2) { grid-column: 2; grid-row: 1; }
+.gallery-item:nth-child(3) { grid-column: 3; grid-row: 1; }
+.gallery-item:nth-child(4) { grid-column: 2; grid-row: 2; }
+.gallery-item:nth-child(5) { grid-column: 3; grid-row: 2; }
+.gallery-item img { filter: saturate(.72) contrast(1.05) !important; }
+.gallery-item:hover { transform: none !important; box-shadow: inset 0 0 0 1px rgba(59,189,214,0.18); }
+.gallery-item:hover img { filter: saturate(1.08) contrast(1.02) !important; }
+
+/* ── AUDIENCE UPGRADE ── */
+.audience-grid { border-color: var(--line) !important; margin-top: 5rem !important; }
+.audience-card { padding: clamp(2rem, 4vw, 3.5rem) !important; background: transparent !important; border-color: var(--line-faint) !important; }
+.audience-card:hover { background: rgba(59,189,214,0.022) !important; }
+.audience-name { font-size: clamp(1.45rem, 2.2vw, 2.2rem) !important; letter-spacing: -.012em !important; }
+.audience-icon { border-color: rgba(214,232,248,0.09) !important; background: rgba(59,189,214,0.055) !important; }
+.audience-pain { font-size: .78rem !important; line-height: 1.95 !important; }
+.audience-outcome { font-size: .79rem !important; line-height: 1.9 !important; }
+
+/* ── BUNDLE UPGRADE ── */
+.bundle-grid { max-width: 900px !important; }
+.bundle-card { background: transparent !important; border-color: var(--line) !important; }
+.bundle-card.featured { border-color: rgba(59,189,214,0.15) !important; box-shadow: 0 50px 130px rgba(0,0,0,0.55), inset 0 1px 0 rgba(59,189,214,0.08) !important; }
+.bundle-card.featured:hover { border-color: rgba(59,189,214,0.28) !important; box-shadow: 0 60px 160px rgba(0,0,0,0.6), 0 0 80px rgba(59,189,214,0.08), inset 0 1px 0 rgba(59,189,214,0.12) !important; }
+.bundle-img-wrap { padding-bottom: 52% !important; }
+.bundle-card-name { font-size: clamp(1.9rem, 3vw, 2.9rem) !important; letter-spacing: -.02em !important; line-height: 1.04 !important; }
+.bundle-price { font-size: clamp(2.1rem, 3.8vw, 3rem) !important; letter-spacing: -.03em !important; }
+.bundle-card.featured .bundle-price { color: var(--ocean-light) !important; }
+.bundle-badge { background: linear-gradient(135deg, var(--ocean), var(--ocean-light)) !important; box-shadow: 0 4px 20px rgba(59,189,214,0.28) !important; font-size: .52rem !important; }
+.bundle-card-body { padding: clamp(1.6rem, 2.8vw, 2.6rem) !important; }
+
+/* ── PRODUCT CARDS ── */
+.products-grid { gap: 1.2rem !important; margin-top: 5rem !important; }
+.product-card { border-color: var(--line) !important; background: linear-gradient(180deg, rgba(11,26,52,0.45) 0%, rgba(6,18,36,0.3) 100%) !important; transition: border-color .4s, box-shadow .4s, transform .4s !important; }
+.product-card:hover { transform: translateY(-6px) !important; border-color: rgba(59,189,214,0.18) !important; box-shadow: 0 28px 80px rgba(0,0,0,0.5), 0 0 35px rgba(59,189,214,0.05) !important; }
+.product-card-name { font-size: clamp(1.15rem, 1.85vw, 1.65rem) !important; letter-spacing: -.01em !important; line-height: 1.15 !important; }
+.product-price { font-size: 1.55rem !important; letter-spacing: -.018em !important; }
+.product-outcome { font-size: 1.02rem !important; }
+.product-img-wrap::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to bottom, transparent 50%, rgba(6,18,36,0.72));
+  pointer-events: none;
+}
+
+/* ── HOW IT WORKS ── */
+.how-grid { border-color: var(--line) !important; margin-top: 5rem !important; }
+.how-step { background: transparent !important; padding: clamp(2rem, 4.5vw, 3.6rem) !important; border-color: var(--line-faint) !important; transition: background .4s !important; position: relative !important; overflow: hidden !important; }
+.how-step:hover { background: rgba(59,189,214,0.022) !important; }
+.how-step::after {
+  content: attr(data-step);
+  position: absolute; bottom: -1.5rem; right: 1rem;
+  font-family: var(--serif); font-size: 8rem; font-weight: 300;
+  color: rgba(214,232,248,0.022); line-height: 1; pointer-events: none;
+}
+.how-num { font-size: 4.8rem !important; opacity: .16 !important; margin-bottom: 1.8rem !important; letter-spacing: -.045em !important; }
+.how-title { font-size: .68rem !important; letter-spacing: .24em !important; margin-bottom: 1rem !important; }
+.how-desc { font-size: .79rem !important; line-height: 2.05 !important; opacity: .82; }
+
+/* ── ABOUT ── */
+.about-grid { padding-top: 5rem !important; gap: clamp(3.5rem, 8vw, 9rem) !important; }
+.about-img-container { box-shadow: 0 50px 120px rgba(0,0,0,0.65), 0 0 0 1px rgba(59,189,214,0.055) !important; aspect-ratio: 4/5 !important; }
+.about-img-container img { filter: saturate(.76) contrast(1.04) !important; }
+.about-quote { font-size: clamp(1.6rem, 2.9vw, 2.65rem) !important; line-height: 1.34 !important; border-left-color: rgba(59,189,214,0.4) !important; padding-left: 2rem !important; margin-bottom: 3rem !important; }
+.about-body { font-size: .88rem !important; line-height: 2.1 !important; color: rgba(138,170,200,0.8) !important; }
+.about-sig { font-size: 1.6rem !important; }
+
+/* ── FOOTER ── */
+footer { background: var(--surface-deep) !important; border-color: var(--line-faint) !important; }
+.footer-brand-name { font-size: 1.6rem !important; letter-spacing: .06em !important; }
+.footer-bottom { border-color: var(--line-faint) !important; }
+
+/* ── MODAL ── */
+.modal { background: linear-gradient(155deg, rgba(10,25,52,0.99), rgba(4,11,26,0.99)) !important; border-color: rgba(214,232,248,0.09) !important; box-shadow: 0 60px 150px rgba(0,0,0,0.85), 0 0 0 1px rgba(59,189,214,0.06) !important; }
+.modal-opt { background: rgba(6,18,38,0.7) !important; border-color: rgba(214,232,248,0.07) !important; transition: border-color .3s, background .3s, transform .25s !important; }
+.modal-opt:hover { border-color: rgba(59,189,214,0.28) !important; background: rgba(59,189,214,0.07) !important; transform: translateX(4px) !important; }
+
+/* ══════════════════════════════════════════════════════
+   MOBILE-FIRST OPTIMIZATIONS  (≤ 860px breakpoint)
+══════════════════════════════════════════════════════ */
+@media (max-width: 860px) {
+  /* Hero mobile */
+  .hero {
+    grid-template-columns: 1fr !important;
+    padding-top: 5.5rem !important;
+    padding-left: 0 !important; padding-right: 0 !important;
+    padding-bottom: 0 !important;
+    gap: 0 !important;
+    min-height: auto !important;
+    overflow: hidden !important;
+    width: 100vw !important;
+  }
+  .hero-text {
+    text-align: center;
+    padding: 2rem var(--px) 3rem !important;
+    width: 100% !important;
+    overflow: hidden !important;
+  }
+  .hero-eyebrow { justify-content: center; margin-bottom: 1.6rem !important; font-size: .55rem !important; letter-spacing: .3em !important; }
+  .hero-headline {
+    font-size: clamp(3rem, 10.5vw, 5rem) !important;
+    line-height: .88 !important;
+    word-break: keep-all !important;
+    overflow-wrap: break-word !important;
+  }
+  .hero-rule { margin: 1.6rem 0 !important; }
+  .hero-sub {
+    max-width: 100% !important;
+    margin-bottom: 2rem !important;
+    font-size: .88rem !important;
+    line-height: 1.9 !important;
+    overflow-wrap: break-word !important;
+    word-break: break-word !important;
+    text-align: center !important;
+    padding: 0 0.25rem;
+  }
+  .hero-actions {
+    justify-content: center;
+    gap: .75rem !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    width: 100% !important;
+    max-width: 340px !important;
+    margin: 0 auto !important;
+  }
+  .hero-actions .btn-primary,
+  .hero-actions .btn-outline {
+    padding: 1.05rem 1.5rem !important;
+    font-size: .63rem !important;
+    text-align: center !important;
+    justify-content: center !important;
+    display: block !important;
+    width: 100% !important;
+  }
+  .hero-social-proof { justify-content: center; margin-top: 1.8rem !important; }
+  .hero-visual {
+    order: -1;
+    height: auto !important;
+    max-height: none !important;
+    width: 100% !important;
+    padding-top: clamp(4.5rem, 12vw, 7rem) !important;
+    display: block !important;
+  }
+  .hv-panel {
+    border-radius: 0 !important;
+    border-left: none !important; border-right: none !important;
+    padding: 1.4rem var(--px) !important;
+    flex-direction: row !important; align-items: center !important;
+    gap: 1.2rem !important;
+    min-height: 0 !important;
+    background: linear-gradient(90deg, rgba(7,19,42,0.95) 0%, rgba(3,10,24,0.98) 100%) !important;
+    box-shadow: none !important;
+    border-top: 1px solid rgba(214,232,248,0.07) !important;
+    border-bottom: 1px solid rgba(214,232,248,0.07) !important;
+    overflow: hidden !important;
+    width: 100% !important;
+  }
+  .hv-meta-top { display: none; }
+  .hv-focal {
+    flex-direction: column !important;
+    gap: .2rem !important;
+    flex: none !important;
+    justify-content: center !important;
+    align-items: flex-start !important;
+    min-width: 90px !important;
+  }
+  .hv-r1, .hv-r2 { display: none; }
+  .hv-focal-glow { display: none; }
+  .hv-focal-num {
+    font-size: 3.2rem !important;
+    line-height: .9 !important;
+    letter-spacing: -.04em !important;
+    white-space: nowrap !important;
+  }
+  .hv-focal-sub {
+    font-size: .48rem !important;
+    letter-spacing: .2em !important;
+    white-space: nowrap !important;
+  }
+  .hv-strip {
+    border-radius: 8px !important;
+    flex: 1 !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
+  }
+  .hv-strip-item {
+    padding: .65rem .55rem !important;
+    gap: .4rem !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
+  }
+  .hv-strip-name {
+    font-size: .54rem !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+  .hv-strip-meta { display: none; }
+  .hv-strip-badge { display: none; }
+  .hv-strip-num { font-size: .62rem !important; flex-shrink: 0 !important; }
+  .hv-strip-divider { flex-shrink: 0 !important; }
+  .hv-bottom { display: none; }
+  .hero-scroll { display: none; }
+
+  /* Stats mobile */
+  .stat-num { font-size: clamp(2.6rem, 8vw, 3.8rem) !important; }
+  .stat-item { padding: 2rem 1.2rem !important; }
+
+  /* Section rhythm mobile */
+  .section { padding: clamp(4rem, 10vw, 6rem) var(--px) !important; }
+  .section-headline { font-size: clamp(2.6rem, 8.5vw, 4.2rem) !important; }
+
+  /* Testimonials mobile — stack */
+  .testimonials-grid { grid-template-columns: 1fr !important; }
+  .testimonial-card:first-child { padding: 2.2rem !important; display: flex !important; flex-direction: column !important; }
+  .testimonial-card:first-child .testimonial-text { font-size: 1.08rem !important; }
+  .testimonial-card:nth-child(2) { border-right: none !important; border-top: 1px solid var(--line) !important; }
+
+  /* Gallery mobile */
+  .gallery-grid { grid-template-columns: 1fr 1fr !important; grid-template-rows: auto !important; height: auto !important; }
+  .gallery-item { aspect-ratio: 4/5 !important; }
+  .gallery-item:nth-child(1) { grid-column: 1 / -1 !important; grid-row: auto !important; aspect-ratio: 16/9 !important; }
+  .gallery-item:nth-child(n+3) { display: block !important; }
+  .gallery-item:nth-child(2),
+  .gallery-item:nth-child(3),
+  .gallery-item:nth-child(4),
+  .gallery-item:nth-child(5) { grid-column: auto !important; grid-row: auto !important; }
+
+  /* Audience mobile */
+  .audience-grid { grid-template-columns: 1fr !important; }
+  .audience-card { border-right: none !important; border-bottom: 1px solid var(--line-faint) !important; }
+  .audience-card:last-child { border-bottom: none !important; }
+
+  /* Products mobile */
+  .products-grid { grid-template-columns: 1fr !important; gap: 1rem !important; }
+  .product-card:hover { transform: none !important; }
+
+  /* How it works mobile */
+  .how-grid { grid-template-columns: 1fr !important; }
+  .how-step { border-right: none !important; border-bottom: 1px solid var(--line-faint) !important; }
+  .how-step:last-child { border-bottom: none !important; }
+
+  /* About mobile */
+  .about-grid { grid-template-columns: 1fr !important; padding-top: 3rem !important; }
+  .about-image-wrap { position: static !important; max-width: 320px; margin: 0 auto; }
+
+  /* Footer mobile */
+  .footer-main { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
+}
+
+/* Tablet tweaks (480-860) */
+@media (min-width: 480px) and (max-width: 860px) {
+  .products-grid { grid-template-columns: repeat(2, 1fr) !important; }
+  .audience-grid { grid-template-columns: 1fr !important; }
+  .how-grid { grid-template-columns: repeat(2, 1fr) !important; }
+  .how-step:nth-child(2n) { border-right: none !important; }
+  .how-step:nth-last-child(-n+2) { border-bottom: none !important; }
+}
+
+/* Small phone (≤ 430px) */
+@media (max-width: 430px) {
+  .hero-headline { font-size: clamp(3rem, 12vw, 4.2rem) !important; }
+  .hv-panel { flex-direction: column !important; padding: 1.4rem 1.2rem !important; gap: 1.2rem !important; }
+  .hv-focal { align-items: center !important; }
+  .hv-strip { width: 100%; }
+  .btn-primary, .btn-outline { width: 100%; justify-content: center; }
+  .hero-actions { flex-direction: column; width: 100%; }
+  .stats-inner { grid-template-columns: repeat(2, 1fr) !important; }
+  .stat-item:nth-child(2) { border-right: none !important; }
+  .stat-item:nth-child(1), .stat-item:nth-child(2) { border-bottom: 1px solid var(--line-faint) !important; }
+  .testimonial-card:first-child .testimonial-text { font-size: .98rem !important; }
+  .products-grid { grid-template-columns: 1fr !important; }
+}
+
+/* ── LANG SHOW/HIDE ── */
+[data-lang="id"] .txt-en { display: none !important; }
+[data-lang="en"] .txt-id { display: none !important; }
+
+
+
+/* --- CLEAN PHOTO / LESS GRITTY OVERRIDES --- */
+body::after {
+  display: none !important;
+}
+.hv-noise-overlay {
+  display: none !important;
+}
+.gallery-item img,
+.gallery-item:hover img,
+.bundle-img-wrap img,
+.bundle-card:hover .bundle-img-wrap img,
+.product-img-wrap img,
+.product-card:hover .product-img-wrap img,
+.about-img-container img {
+  filter: none !important;
+}
+
+
+/* ═════════════════════════════════════════════
+   EDITORIAL HERO SHOWCASE — HVX
+   Premium tab-based product system preview
+   ═════════════════════════════════════════════ */
+.hvx-stage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 120% 80% at 82% 8%, rgba(59,189,214,0.075), transparent 62%),
+    radial-gradient(ellipse 100% 70% at 8% 100%, rgba(14,46,110,0.22), transparent 60%),
+    linear-gradient(165deg, #081633 0%, #040D1E 55%, #020812 100%);
+  border: 1px solid rgba(214,232,248,0.08);
+  box-shadow:
+    0 48px 120px rgba(0,0,0,0.55),
+    inset 0 1px 0 rgba(214,232,248,0.07),
+    inset 0 0 0 1px rgba(59,189,214,0.02);
+  display: flex;
+  flex-direction: column;
+  padding: 1.75rem 1.75rem 1.5rem;
+  gap: 1.15rem;
+}
+
+/* ambient glow layers */
+.hvx-glow {
+  position: absolute; border-radius: 50%;
+  pointer-events: none; filter: blur(60px);
+}
+.hvx-glow-a {
+  top: -90px; right: -70px; width: 400px; height: 340px;
+  background: radial-gradient(ellipse, rgba(59,189,214,0.14), transparent 68%);
+  animation: hvxGlow 10s ease-in-out infinite;
+}
+.hvx-glow-b {
+  bottom: -70px; left: -60px; width: 340px; height: 270px;
+  background: radial-gradient(ellipse, rgba(18,55,140,0.22), transparent 68%);
+  animation: hvxGlow 13s ease-in-out 3s infinite;
+}
+@keyframes hvxGlow {
+  0%,100% { opacity: .78; transform: translate3d(0,0,0); }
+  50%     { opacity: 1;   transform: translate3d(0,-10px,0); }
+}
+
+.hvx-grid-faint {
+  position: absolute; inset: 0; pointer-events: none; opacity: .32;
+  background-image:
+    linear-gradient(rgba(214,232,248,0.028) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(214,232,248,0.028) 1px, transparent 1px);
+  background-size: 64px 64px;
+  -webkit-mask-image: radial-gradient(ellipse at center, rgba(0,0,0,.7), transparent 78%);
+          mask-image: radial-gradient(ellipse at center, rgba(0,0,0,.7), transparent 78%);
+}
+
+/* ── top rail ── */
+.hvx-top {
+  position: relative; z-index: 3;
+  display: flex; justify-content: space-between; align-items: center;
+  font-family: var(--sans);
+}
+.hvx-top-left { display: flex; align-items: baseline; gap: .6rem; }
+.hvx-brand {
+  font-family: var(--serif); font-style: italic; font-weight: 500;
+  font-size: 1rem; color: var(--cream); letter-spacing: .01em;
+}
+.hvx-dot { color: var(--cream-muted); opacity: .55; }
+.hvx-edition {
+  font-size: .52rem; letter-spacing: .28em; text-transform: uppercase;
+  color: var(--cream-muted); font-weight: 400;
+}
+.hvx-top-right {
+  display: flex; align-items: center; gap: .55rem;
+  padding: .34rem .75rem .34rem .58rem;
+  border: 1px solid rgba(59,189,214,0.2);
+  border-radius: 999px;
+  background: rgba(59,189,214,0.05);
+}
+.hvx-live-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--ocean); box-shadow: 0 0 10px var(--ocean);
+  animation: hvxPulse 2.4s ease-in-out infinite;
+}
+@keyframes hvxPulse {
+  0%,100% { opacity: 1; transform: scale(1); }
+  50%     { opacity: .45; transform: scale(.82); }
+}
+.hvx-live-label {
+  font-size: .5rem; letter-spacing: .24em; text-transform: uppercase;
+  color: var(--ocean-light); font-weight: 500;
+}
+
+/* ── showcase area ── */
+.hvx-showcase {
+  position: relative; z-index: 2;
+  flex: 1; min-height: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+
+/* depth-layer ghost cards */
+.hvx-back {
+  position: absolute;
+  width: 60%; aspect-ratio: 3/4; max-height: 88%;
+  border-radius: 14px;
+  border: 1px solid rgba(214,232,248,0.05);
+  background: linear-gradient(160deg, rgba(12,29,56,0.5), rgba(4,13,30,0.3));
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  pointer-events: none;
+  box-shadow: 0 20px 50px rgba(0,0,0,.35);
+}
+.hvx-back-1 { transform: translate(-9%, -5%) rotate(-3.2deg); opacity: .85; }
+.hvx-back-2 { transform: translate(9%, 5%) rotate(3.2deg);  opacity: .55; }
+
+/* the three editorial covers */
+.hvx-cover {
+  position: absolute;
+  width: 60%; aspect-ratio: 3/4; max-height: 92%;
+  border-radius: 14px;
+  border: 1px solid rgba(214,232,248,0.1);
+  background: linear-gradient(165deg, #0B1D3C 0%, #071530 55%, #050F22 100%);
+  box-shadow:
+    0 34px 80px rgba(0,0,0,.58),
+    inset 0 1px 0 rgba(214,232,248,.08);
+  padding: 1.15rem 1.15rem 1.25rem;
+  display: flex; flex-direction: column;
+  opacity: 0;
+  transform: translateY(16px) scale(.985);
+  transition: opacity .7s ease, transform .95s cubic-bezier(.2,.7,.2,1);
+  pointer-events: none;
+  overflow: hidden;
+  will-change: opacity, transform;
+}
+.hvx-cover::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 100% 60% at 50% 0%, rgba(59,189,214,0.1), transparent 70%);
+  pointer-events: none;
+}
+.hvx-cover.is-active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+  z-index: 2;
+}
+.hvx-cover-label {
+  display: flex; justify-content: space-between; align-items: center;
+  font-family: var(--sans); position: relative; z-index: 1;
+}
+.hvx-cover-idx {
+  font-family: var(--serif); font-size: .75rem;
+  color: var(--ocean); letter-spacing: .14em; font-weight: 400;
+}
+.hvx-cover-kind {
+  font-size: .48rem; letter-spacing: .26em; text-transform: uppercase;
+  color: var(--cream-muted); font-weight: 500;
+}
+.hvx-cover-art {
+  flex: 1; min-height: 0;
+  margin: .95rem 0;
+  display: flex; align-items: center; justify-content: center;
+  position: relative;
+  border-radius: 8px;
+  background:
+    radial-gradient(ellipse at center, rgba(59,189,214,0.07), transparent 65%),
+    linear-gradient(180deg, rgba(4,12,28,0.6), rgba(4,12,28,0.22));
+  border: 1px solid rgba(214,232,248,0.06);
+  overflow: hidden;
+}
+
+/* cover 1 — e-book */
+.hvx-ebook-face {
+  position: relative;
+  width: 54%; aspect-ratio: 3/4;
+  background: linear-gradient(155deg, #132d55 0%, #081a38 60%, #030a1a 100%);
+  border: 1px solid rgba(59,189,214,0.22);
+  border-radius: 2px 7px 7px 2px;
+  box-shadow:
+    0 22px 45px rgba(0,0,0,.6),
+    inset 0 1px 0 rgba(214,232,248,.1);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: 1rem; gap: .6rem;
+}
+.hvx-ebook-face::before {
+  content: '';
+  position: absolute; left: 0; top: 0; bottom: 0; width: 5px;
+  background: linear-gradient(180deg, var(--ocean), rgba(59,189,214,0.2));
+  border-radius: 2px 0 0 2px;
+}
+.hvx-ebook-face::after {
+  content: '';
+  position: absolute; inset: 8px;
+  border: 1px solid rgba(59,189,214,0.14);
+  border-radius: 2px;
+  pointer-events: none;
+}
+.hvx-ebook-emblem {
+  font-family: var(--serif); font-style: italic;
+  font-size: 2rem; color: var(--ocean-light); font-weight: 500;
+  line-height: 1; position: relative; z-index: 1;
+}
+.hvx-ebook-rule {
+  width: 34px; height: 1px; background: rgba(59,189,214,0.5);
+  position: relative; z-index: 1;
+}
+.hvx-ebook-small {
+  font-family: var(--sans); font-size: .44rem; letter-spacing: .28em;
+  text-transform: uppercase; color: var(--cream-muted); font-weight: 500;
+  position: relative; z-index: 1;
+}
+
+/* cover 2 — cheat system */
+.hvx-art-cheat {
+  flex-direction: column; justify-content: center; gap: .6rem;
+  padding: 1.1rem 1.2rem;
+}
+.hvx-cheat-row { display: flex; align-items: center; gap: .6rem; width: 78%; }
+.hvx-cheat-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: rgba(214,232,248,0.2);
+  border: 1px solid rgba(214,232,248,0.22); flex-shrink: 0;
+}
+.hvx-cheat-dot.on {
+  background: var(--ocean);
+  box-shadow: 0 0 8px rgba(59,189,214,0.65);
+  border-color: rgba(59,189,214,0.7);
+}
+.hvx-cheat-line {
+  flex: 1; height: 6px; border-radius: 3px;
+  background: linear-gradient(90deg, rgba(214,232,248,0.1), rgba(214,232,248,0.02));
+}
+.hvx-cheat-line.mid  { max-width: 68%; }
+.hvx-cheat-line.long {
+  background: linear-gradient(90deg, rgba(59,189,214,0.38), rgba(59,189,214,0.05));
+}
+.hvx-cheat-out {
+  margin-top: .5rem;
+  display: flex; align-items: center; gap: .5rem;
+  padding: .58rem .82rem;
+  border-radius: 6px;
+  background: linear-gradient(90deg, rgba(59,189,214,0.13), rgba(59,189,214,0.02));
+  border: 1px solid rgba(59,189,214,0.3);
+  width: 78%;
+}
+.hvx-cheat-out-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--ocean); box-shadow: 0 0 8px var(--ocean);
+  animation: hvxPulse 2.2s ease-in-out infinite;
+  flex-shrink: 0;
+}
+.hvx-cheat-out-label {
+  font-family: var(--sans); font-size: .5rem;
+  letter-spacing: .22em; text-transform: uppercase;
+  color: var(--ocean-light); font-weight: 500;
+}
+
+/* cover 3 — prompt pack */
+.hvx-art-pack { padding: .95rem; }
+.hvx-pack-grid {
+  width: 100%; height: 100%;
+  display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(2, 1fr);
+  gap: 6px;
+}
+.hvx-pack-cell {
+  border-radius: 4px;
+  background: linear-gradient(145deg, rgba(59,189,214,0.16), rgba(10,28,60,0.6));
+  border: 1px solid rgba(59,189,214,0.16);
+}
+.hvx-pack-cell.alt {
+  background: linear-gradient(145deg, rgba(18,45,95,0.6), rgba(5,14,30,0.75));
+  border-color: rgba(214,232,248,0.08);
+}
+.hvx-pack-count {
+  position: absolute;
+  right: 12px; bottom: 12px;
+  padding: .32rem .58rem;
+  border-radius: 4px;
+  background: rgba(4,12,28,0.88);
+  border: 1px solid rgba(59,189,214,0.3);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+.hvx-pack-count span {
+  font-family: var(--serif); font-size: .88rem;
+  color: var(--cream); font-weight: 500;
+}
+.hvx-pack-count em { color: var(--ocean); font-style: normal; }
+
+/* cover meta (shared) */
+.hvx-cover-meta {
+  display: flex; flex-direction: column; gap: .38rem;
+  position: relative; z-index: 1;
+}
+.hvx-cover-title {
+  font-family: var(--serif); font-weight: 400;
+  font-size: 1.4rem; line-height: 1.1; color: var(--cream);
+  letter-spacing: -.005em;
+}
+.hvx-cover-title em { font-style: italic; color: var(--ocean); font-weight: 500; }
+.hvx-cover-desc {
+  font-family: var(--sans); font-size: .6rem; line-height: 1.55;
+  color: var(--cream-dim); font-weight: 300;
+  max-width: 95%;
+}
+
+/* floating proof badge */
+.hvx-proof {
+  position: absolute;
+  right: 3%; top: 58%;
+  transform: translateY(-50%);
+  width: 112px;
+  padding: .95rem .7rem;
+  background: rgba(4,12,28,0.9);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(59,189,214,0.24);
+  border-radius: 10px;
+  box-shadow:
+    0 24px 55px rgba(0,0,0,0.55),
+    inset 0 1px 0 rgba(214,232,248,.06);
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+  gap: .28rem;
+  z-index: 4;
+}
+.hvx-proof::before {
+  content: ''; position: absolute; inset: 0; border-radius: 10px;
+  background: radial-gradient(ellipse at top, rgba(59,189,214,0.1), transparent 70%);
+  pointer-events: none;
+}
+.hvx-proof-num {
+  font-family: var(--serif); font-size: 2.15rem; font-weight: 300;
+  color: var(--cream); line-height: 1; letter-spacing: -.02em;
+  position: relative; z-index: 1;
+}
+.hvx-proof-num em { color: var(--ocean); font-style: normal; font-weight: 400; }
+.hvx-proof-label {
+  font-family: var(--sans); font-size: .44rem; letter-spacing: .22em;
+  text-transform: uppercase; color: var(--cream-muted); font-weight: 500;
+  position: relative; z-index: 1;
+}
+
+/* category rail */
+.hvx-cats {
+  position: relative; z-index: 2;
+  display: flex; align-items: center; justify-content: center;
+  gap: .95rem; padding: .55rem 0;
+  border-top: 1px solid rgba(214,232,248,0.055);
+  border-bottom: 1px solid rgba(214,232,248,0.055);
+}
+.hvx-cat {
+  font-family: var(--sans); font-size: .5rem; letter-spacing: .28em;
+  text-transform: uppercase; color: var(--cream-muted); font-weight: 500;
+}
+.hvx-cat-sep {
+  width: 3px; height: 3px; border-radius: 50%;
+  background: rgba(59,189,214,0.42);
+}
+
+/* tab strip */
+.hvx-tabs {
+  position: relative; z-index: 3;
+  display: flex; align-items: stretch;
+  border: 1px solid rgba(214,232,248,0.08);
+  border-radius: 10px;
+  overflow: hidden;
+  background: rgba(4,12,28,0.72);
+}
+.hvx-tab {
+  flex: 1;
+  display: flex; align-items: center; gap: .75rem;
+  padding: .95rem .95rem;
+  background: transparent;
+  border: none;
+  border-right: 1px solid rgba(214,232,248,0.065);
+  font-family: var(--sans); color: inherit;
+  cursor: pointer; text-align: left;
+  transition: background .5s ease;
+  position: relative;
+  min-width: 0;
+}
+.hvx-tab:last-child { border-right: none; }
+.hvx-tab::after {
+  content: '';
+  position: absolute; left: 20%; right: 20%; bottom: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--ocean), transparent);
+  transform: scaleX(0); transform-origin: center;
+  transition: transform .6s cubic-bezier(.2,.7,.2,1);
+}
+.hvx-tab:hover { background: rgba(59,189,214,0.04); }
+.hvx-tab.is-active { background: rgba(59,189,214,0.06); }
+.hvx-tab.is-active::after { transform: scaleX(1); }
+.hvx-tab-idx {
+  font-family: var(--serif); font-size: 1rem;
+  color: var(--ocean); opacity: .5;
+  font-weight: 400; flex-shrink: 0;
+  transition: opacity .4s ease;
+}
+.hvx-tab.is-active .hvx-tab-idx { opacity: 1; }
+.hvx-tab-body {
+  display: flex; flex-direction: column; gap: .14rem;
+  min-width: 0; flex: 1;
+}
+.hvx-tab-name {
+  font-size: .66rem; color: var(--cream); font-weight: 400;
+  letter-spacing: .02em; white-space: nowrap;
+  overflow: hidden; text-overflow: ellipsis;
+}
+.hvx-tab-kind {
+  font-size: .46rem; letter-spacing: .22em; text-transform: uppercase;
+  color: var(--cream-muted); font-weight: 500;
+}
+
+/* ── tablet + mobile ── */
+@media (max-width: 860px) {
+  .hvx-stage {
+    border-radius: 16px !important;
+    padding: 1.15rem 1.15rem 1.1rem !important;
+    height: auto !important;
+    min-height: 540px;
+    gap: .9rem !important;
+  }
+  .hvx-brand { font-size: .85rem; }
+  .hvx-edition { font-size: .46rem !important; letter-spacing: .22em !important; }
+  .hvx-top-right { padding: .26rem .58rem .26rem .46rem; }
+  .hvx-live-label { font-size: .46rem; letter-spacing: .2em; }
+  .hvx-showcase { min-height: 310px; }
+  .hvx-cover { width: 72%; padding: .95rem .95rem 1rem; }
+  .hvx-back { width: 72%; }
+  .hvx-cover-title { font-size: 1.18rem; }
+  .hvx-cover-desc { font-size: .56rem; }
+  .hvx-ebook-emblem { font-size: 1.6rem; }
+  .hvx-proof {
+    right: 2%;
+    width: 88px; padding: .7rem .5rem;
+  }
+  .hvx-proof-num { font-size: 1.55rem; }
+  .hvx-proof-label { font-size: .4rem; letter-spacing: .18em; }
+  .hvx-cats { gap: .6rem; padding: .4rem 0; flex-wrap: wrap; }
+  .hvx-cat { font-size: .44rem !important; letter-spacing: .22em !important; }
+  .hvx-tab { padding: .7rem .6rem; gap: .55rem; }
+  .hvx-tab-idx { font-size: .82rem; }
+  .hvx-tab-name { font-size: .58rem; }
+  .hvx-tab-kind { font-size: .42rem; letter-spacing: .18em; }
+}
+@media (max-width: 430px) {
+  .hvx-stage { min-height: 560px; padding: 1rem .95rem !important; }
+  .hvx-showcase { min-height: 280px; }
+  .hvx-cover { width: 84%; padding: .85rem .85rem .95rem; }
+  .hvx-back-1 { transform: translate(-6%, -4%) rotate(-2.4deg); }
+  .hvx-back-2 { transform: translate(6%, 4%) rotate(2.4deg); }
+  .hvx-back { width: 84%; }
+  .hvx-proof { display: none; }
+  .hvx-cover-title { font-size: 1.05rem; }
+  .hvx-cats .hvx-cat-sep:nth-of-type(n+2) { display: none; }
+  .hvx-tab-kind { display: none; }
+  .hvx-tab { padding: .6rem .5rem; gap: .45rem; }
+  .hvx-tab-idx { font-size: .74rem; }
+  .hvx-tab-name { font-size: .54rem; }
+}
+
+/* respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .hvx-glow-a, .hvx-glow-b, .hvx-live-dot,
+  .hvx-cheat-out-dot { animation: none !important; }
+  .hvx-cover { transition: opacity .25s linear !important; }
+}
+
 </style>
 </head>
 <body>
@@ -1990,39 +3127,37 @@ footer {
   <!-- LEFT -->
   <div class="hero-text">
     <div class="hero-eyebrow">
-      <span class="txt-id">Aurelea AI Creative · 2025</span>
-      <span class="txt-en">Aurelea AI Creative · 2025</span>
+      <span class="txt-id">Aurelea AI Creative &middot; Sistem Visual Profesional</span>
+      <span class="txt-en">Aurelea AI Creative &middot; Professional Visual System</span>
     </div>
 
     <h1 class="hero-headline txt-id">
-      Hasilkan<br>
-      Visual AI<br>
-      yang <em>Profesional</em>
+      Bukan sekadar<br>
+      prompt —<br>
+      ini <em>sistemnya.</em>
     </h1>
     <h1 class="hero-headline txt-en">
-      Generate<br>
-      <em>Professional</em><br>
-      AI Visuals
+      Not just<br>
+      prompts —<br>
+      the <em>system.</em>
     </h1>
 
     <div class="hero-rule"></div>
 
     <p class="hero-sub txt-id">
-      Sistem prompt terstruktur untuk kreator yang serius. Bukan sekadar kumpulan prompt —
-      ini adalah <strong>framework visual lengkap</strong> yang sudah terbukti menghasilkan output konsisten.
+      Kreator serius butuh lebih dari prompt acak. Aurelea menyediakan <strong>framework visual lengkap</strong> — panduan, generator, dan 400+ prompt yang terbukti menghasilkan output konsisten dan profesional.
     </p>
     <p class="hero-sub txt-en">
-      A structured prompt system built for serious creators. Not just a prompt list —
-      a <strong>complete visual framework</strong> proven to deliver consistent, high-quality output.
+      Serious creators need more than random prompts. Aurelea gives you a <strong>complete visual framework</strong> — guide, generator, and 400+ proven prompts for consistent, professional-grade output.
     </p>
 
     <div class="hero-actions">
       <button class="btn-primary" onclick="openModal('paket2')">
-        <span class="txt-id">Dapatkan Sistem Ini</span>
-        <span class="txt-en">Get The System</span>
+        <span class="txt-id">Dapatkan Sistem Lengkap</span>
+        <span class="txt-en">Get The Full System</span>
       </button>
       <a href="#products" class="btn-outline">
-        <span class="txt-id">Lihat Produk</span>
+        <span class="txt-id">Lihat Semua Produk</span>
         <span class="txt-en">Explore Products</span>
       </a>
     </div>
@@ -2035,75 +3170,152 @@ footer {
         <div class="hero-avatar">+</div>
       </div>
       <p class="hero-proof-text txt-id"><strong>200+ kreator</strong> sudah menggunakan sistem ini</p>
-      <p class="hero-proof-text txt-en"><strong>200+ creators</strong> are already using this system</p>
+      <p class="hero-proof-text txt-en"><strong>200+ creators</strong> already trust this system</p>
     </div>
   </div>
 
-  <!-- RIGHT — floating cards -->
+  <!-- RIGHT — cinematic showcase panel -->
   <div class="hero-visual">
-    <div class="card-stack">
+    <div class="hvx-stage" style="opacity:0;animation:fadeIn 1.2s ease .4s forwards;">
+      <!-- ambient atmosphere -->
+      <div class="hvx-glow hvx-glow-a"></div>
+      <div class="hvx-glow hvx-glow-b"></div>
+      <div class="hvx-grid-faint"></div>
 
-      <div class="connector conn-1"></div>
-      <div class="connector conn-2"></div>
-
-      <!-- Card 1: E-Book -->
-      <div class="float-card fc-ebook">
-        <span class="fc-eyebrow">01 · E-Book</span>
-        <div style="display:flex; gap:12px; align-items:center;">
-          <div class="fc-icon-book"><span>AI<br>Image<br>Gen</span></div>
-          <div>
-            <div class="fc-title">AI Image<br><em>Generation</em></div>
-            <div class="fc-meta" style="margin-top:5px;">10 Bab Lengkap</div>
-          </div>
+      <!-- top metadata rail -->
+      <div class="hvx-top">
+        <div class="hvx-top-left">
+          <span class="hvx-brand">Aurelea</span>
+          <span class="hvx-dot">·</span>
+          <span class="hvx-edition">Vol. I / Edition 2026</span>
         </div>
-        <div class="fc-tag">PDF Guide</div>
-      </div>
-
-      <!-- Card 2: Web 400+ Prompts -->
-      <div class="float-card fc-web">
-        <span class="fc-eyebrow">03 · Web Platform</span>
-        <div class="fc-grid">
-          <div class="fc-dot on"></div>
-          <div class="fc-dot on"></div>
-          <div class="fc-dot"></div>
-          <div class="fc-dot on"></div>
-          <div class="fc-dot"></div>
-          <div class="fc-dot on"></div>
-          <div class="fc-dot on"></div>
-          <div class="fc-dot"></div>
-          <div class="fc-dot on"></div>
+        <div class="hvx-top-right">
+          <span class="hvx-live-dot"></span>
+          <span class="hvx-live-label txt-id">Sistem Aktif</span>
+          <span class="hvx-live-label txt-en">System Live</span>
         </div>
-        <div class="fc-title"><em>400+</em><br>Prompt</div>
-        <div class="fc-meta">Hyper Realistic</div>
-        <div class="fc-tag">Web Access</div>
       </div>
 
-      <!-- Card 3: Cheat System -->
-      <div class="float-card fc-cheat">
-        <span class="fc-eyebrow">02 · Cheat System</span>
-        <div class="fc-flow">
-          <div style="display:flex; gap:4px;">
-            <div class="fc-chip on" style="flex:1;">Subject</div>
-            <div class="fc-chip on" style="flex:1;">Style</div>
+      <!-- main editorial showcase -->
+      <div class="hvx-showcase">
+        <!-- layered ghost cards for depth -->
+        <div class="hvx-back hvx-back-2"></div>
+        <div class="hvx-back hvx-back-1"></div>
+
+        <!-- cover 1 — e-book guide -->
+        <article class="hvx-cover is-active" data-layer="1">
+          <div class="hvx-cover-label">
+            <span class="hvx-cover-idx">01 / 03</span>
+            <span class="hvx-cover-kind">Editorial Guide</span>
           </div>
-          <div style="display:flex; gap:4px;">
-            <div class="fc-chip" style="flex:1;">Lighting</div>
-            <div class="fc-chip on" style="flex:1;">Mood</div>
+          <div class="hvx-cover-art hvx-art-ebook">
+            <div class="hvx-ebook-face">
+              <div class="hvx-ebook-emblem">A</div>
+              <div class="hvx-ebook-rule"></div>
+              <span class="hvx-ebook-small">Aurelea Press</span>
+            </div>
           </div>
-          <div class="fc-chip-out">
-            <div class="fc-chip-pulse"></div>
-            <span>Generating Prompt...</span>
+          <div class="hvx-cover-meta">
+            <h3 class="hvx-cover-title txt-id">E&#8209;Book <em>Panduan</em></h3>
+            <h3 class="hvx-cover-title txt-en">The <em>Guide</em></h3>
+            <p class="hvx-cover-desc txt-id">Fondasi sistem prompt dalam sepuluh bab kurasi editorial.</p>
+            <p class="hvx-cover-desc txt-en">Foundations of the prompt system in ten curated chapters.</p>
           </div>
-        </div>
-        <div class="fc-tag">Custom GPT</div>
+        </article>
+
+        <!-- cover 2 — cheat system -->
+        <article class="hvx-cover" data-layer="2">
+          <div class="hvx-cover-label">
+            <span class="hvx-cover-idx">02 / 03</span>
+            <span class="hvx-cover-kind">Generator Core</span>
+          </div>
+          <div class="hvx-cover-art hvx-art-cheat">
+            <div class="hvx-cheat-row"><span class="hvx-cheat-dot"></span><span class="hvx-cheat-line"></span></div>
+            <div class="hvx-cheat-row"><span class="hvx-cheat-dot on"></span><span class="hvx-cheat-line long"></span></div>
+            <div class="hvx-cheat-row"><span class="hvx-cheat-dot"></span><span class="hvx-cheat-line mid"></span></div>
+            <div class="hvx-cheat-out">
+              <span class="hvx-cheat-out-dot"></span>
+              <span class="hvx-cheat-out-label txt-id">Prompt Siap</span>
+              <span class="hvx-cheat-out-label txt-en">Prompt Ready</span>
+            </div>
+          </div>
+          <div class="hvx-cover-meta">
+            <h3 class="hvx-cover-title txt-id">Cheat <em>System</em></h3>
+            <h3 class="hvx-cover-title txt-en">Cheat <em>System</em></h3>
+            <p class="hvx-cover-desc txt-id">Custom GPT yang merangkai prompt kompleks dalam hitungan detik.</p>
+            <p class="hvx-cover-desc txt-en">A custom GPT that composes complex prompts in seconds.</p>
+          </div>
+        </article>
+
+        <!-- cover 3 — prompt pack -->
+        <article class="hvx-cover" data-layer="3">
+          <div class="hvx-cover-label">
+            <span class="hvx-cover-idx">03 / 03</span>
+            <span class="hvx-cover-kind">Prompt Collection</span>
+          </div>
+          <div class="hvx-cover-art hvx-art-pack">
+            <div class="hvx-pack-grid">
+              <div class="hvx-pack-cell"></div>
+              <div class="hvx-pack-cell alt"></div>
+              <div class="hvx-pack-cell"></div>
+              <div class="hvx-pack-cell alt"></div>
+              <div class="hvx-pack-cell"></div>
+              <div class="hvx-pack-cell alt"></div>
+            </div>
+            <div class="hvx-pack-count"><span>400<em>+</em></span></div>
+          </div>
+          <div class="hvx-cover-meta">
+            <h3 class="hvx-cover-title txt-id">Prompt <em>Pack</em></h3>
+            <h3 class="hvx-cover-title txt-en">Prompt <em>Pack</em></h3>
+            <p class="hvx-cover-desc txt-id">Koleksi 400+ prompt hyper&#8209;realistic yang siap pakai.</p>
+            <p class="hvx-cover-desc txt-en">A 400+ collection of hyper&#8209;realistic, ready&#8209;to&#8209;use prompts.</p>
+          </div>
+        </article>
+
+        <!-- floating proof badge -->
+        <aside class="hvx-proof">
+          <span class="hvx-proof-num">400<em>+</em></span>
+          <span class="hvx-proof-label txt-id">Prompt Terkurasi</span>
+          <span class="hvx-proof-label txt-en">Curated Prompts</span>
+        </aside>
       </div>
 
-      <!-- Stat card -->
-      <div class="float-card fc-stat">
-        <div class="fc-num">400<em>+</em></div>
-        <div class="fc-num-label">Prompt Siap Pakai</div>
+      <!-- category metadata rail -->
+      <div class="hvx-cats">
+        <span class="hvx-cat">Editorial</span>
+        <span class="hvx-cat-sep"></span>
+        <span class="hvx-cat">Commercial</span>
+        <span class="hvx-cat-sep"></span>
+        <span class="hvx-cat">Portrait</span>
+        <span class="hvx-cat-sep"></span>
+        <span class="hvx-cat">Hyper Realistic</span>
       </div>
 
+      <!-- tab strip -->
+      <div class="hvx-tabs" role="tablist" aria-label="Product system layers">
+        <button class="hvx-tab is-active" data-tab="1" type="button" role="tab" aria-selected="true">
+          <span class="hvx-tab-idx">01</span>
+          <span class="hvx-tab-body">
+            <span class="hvx-tab-name txt-id">E&#8209;Book Panduan</span>
+            <span class="hvx-tab-name txt-en">E&#8209;Book Guide</span>
+            <span class="hvx-tab-kind">Foundations</span>
+          </span>
+        </button>
+        <button class="hvx-tab" data-tab="2" type="button" role="tab" aria-selected="false">
+          <span class="hvx-tab-idx">02</span>
+          <span class="hvx-tab-body">
+            <span class="hvx-tab-name">Cheat System</span>
+            <span class="hvx-tab-kind">Custom GPT</span>
+          </span>
+        </button>
+        <button class="hvx-tab" data-tab="3" type="button" role="tab" aria-selected="false">
+          <span class="hvx-tab-idx">03</span>
+          <span class="hvx-tab-body">
+            <span class="hvx-tab-name">Prompt Pack</span>
+            <span class="hvx-tab-kind">400+ Curated</span>
+          </span>
+        </button>
+      </div>
     </div>
   </div>
 
@@ -2145,10 +3357,10 @@ footer {
 <section class="section" id="testimonials">
   <div class="section-inner">
     <div class="reveal">
-      <div class="section-tag txt-id">Yang Mereka Katakan</div>
-      <div class="section-tag txt-en">What They're Saying</div>
-      <h2 class="section-headline txt-id">Hasil nyata dari<br>kreator <em>nyata</em></h2>
-      <h2 class="section-headline txt-en">Real results from<br><em>real</em> creators</h2>
+      <div class="section-tag txt-id">Terbukti Nyata</div>
+      <div class="section-tag txt-en">Proven Results</div>
+      <h2 class="section-headline txt-id">Kreator yang pakai ini<br>tidak <em>kembali lagi</em></h2>
+      <h2 class="section-headline txt-en">Creators who used this<br>never went <em>back</em></h2>
     </div>
     <div class="testimonials-grid">
       <div class="testimonial-card reveal reveal-d1">
@@ -2225,44 +3437,46 @@ footer {
 <section class="section section-alt" id="audience">
   <div class="section-inner">
     <div class="reveal">
-      <div class="section-tag txt-id">Untuk Siapa</div>
-      <div class="section-tag txt-en">Who This Is For</div>
-      <h2 class="section-headline txt-id">Dirancang untuk<br>kreator yang <em>serius</em></h2>
-      <h2 class="section-headline txt-en">Built for creators<br>who are <em>serious</em></h2>
+      <div class="section-tag txt-id">Di Mana Kamu Sekarang</div>
+      <div class="section-tag txt-en">Where Are You Now</div>
+      <h2 class="section-headline txt-id">Sistem ini bekerja<br>di semua <em>level</em></h2>
+      <h2 class="section-headline txt-en">This system works<br>at every <em>level</em></h2>
+      <p class="section-sub txt-id">Dari baru mengenal AI image sampai sudah rutin menggunakannya — ada satu titik di mana sistem ini mengubah cara kerja kamu.</p>
+      <p class="section-sub txt-en">Whether you're brand new to AI image or already using it daily — there's a point where this system changes how you work.</p>
     </div>
     <div class="audience-grid">
       <div class="audience-card reveal reveal-d1">
-        <div class="audience-icon">✦</div>
-        <div class="audience-type txt-id">Kreator Konten</div>
-        <div class="audience-type txt-en">Content Creators</div>
-        <h3 class="audience-name txt-id">Konten visual <em>tiap hari</em></h3>
-        <h3 class="audience-name txt-en">Visual content <em>every day</em></h3>
-        <p class="audience-pain txt-id">Butuh visual konsisten tapi nggak punya waktu belajar prompting dari nol — dan hasil AI yang asal-asalan merusak feed.</p>
-        <p class="audience-pain txt-en">Need consistent visuals but have no time to learn prompting from scratch — and mediocre AI output ruins your feed.</p>
-        <p class="audience-outcome txt-id">Hasilkan konten visual harian berkualitas tinggi dalam hitungan menit, bukan jam.</p>
-        <p class="audience-outcome txt-en">Produce high-quality daily visual content in minutes, not hours.</p>
+        <div class="audience-icon">◌</div>
+        <div class="audience-type txt-id">Pemula</div>
+        <div class="audience-type txt-en">Beginner</div>
+        <h3 class="audience-name txt-id">Mulai tanpa<br><em>bingung</em></h3>
+        <h3 class="audience-name txt-en">Start without<br><em>confusion</em></h3>
+        <p class="audience-pain txt-id">Sudah coba AI image tapi hasilnya acak-acakan. Tidak tahu apa yang salah, tidak tahu dari mana harus mulai belajar.</p>
+        <p class="audience-pain txt-en">You've tried AI image but results feel random. You don't know what's wrong or where to even start learning.</p>
+        <p class="audience-outcome txt-id">E-Book memberikan fondasi yang benar — bukan teori, tapi logika di balik setiap prompt yang menghasilkan visual berkelas.</p>
+        <p class="audience-outcome txt-en">The E-Book gives you the right foundation — not theory, but the logic behind every prompt that produces quality visuals.</p>
       </div>
       <div class="audience-card reveal reveal-d2">
         <div class="audience-icon">◈</div>
-        <div class="audience-type txt-id">Freelancer</div>
-        <div class="audience-type txt-en">Freelancers</div>
-        <h3 class="audience-name txt-id">Tampil lebih <em>profesional</em></h3>
-        <h3 class="audience-name txt-en">Look more <em>professional</em></h3>
-        <p class="audience-pain txt-id">Client minta revisi terus karena hasil AI nggak sesuai ekspektasi — kamu kehilangan waktu dan kepercayaan.</p>
-        <p class="audience-pain txt-en">Clients keep requesting revisions because AI output doesn't match expectations — costing you time and trust.</p>
-        <p class="audience-outcome txt-id">Deliver first-draft visuals yang sudah setara output profesional. Menang lebih banyak proyek.</p>
-        <p class="audience-outcome txt-en">Deliver first-draft visuals already at a professional level. Win more projects.</p>
+        <div class="audience-type txt-id">Menengah</div>
+        <div class="audience-type txt-en">Intermediate</div>
+        <h3 class="audience-name txt-id">Berhenti buang<br>waktu untuk <em>trial &amp; error</em></h3>
+        <h3 class="audience-name txt-en">Stop wasting time<br>on <em>trial &amp; error</em></h3>
+        <p class="audience-pain txt-id">Paham dasar-dasarnya, tapi masih terlalu lama bereksperimen. Hasilnya belum konsisten dan belum bisa diandalkan untuk pekerjaan nyata.</p>
+        <p class="audience-pain txt-en">You understand the basics, but still spend too long experimenting. Results aren't consistent enough for real work.</p>
+        <p class="audience-outcome txt-id">400+ Prompt Pack memotong waktu eksperimen jadi detik — pilih, tempel, hasilkan. Langsung siap untuk konten dan klien.</p>
+        <p class="audience-outcome txt-en">The 400+ Prompt Pack cuts experimentation time to seconds — pick, paste, generate. Ready for content and clients immediately.</p>
       </div>
       <div class="audience-card reveal reveal-d3">
-        <div class="audience-icon">◇</div>
-        <div class="audience-type txt-id">Brand Builder</div>
-        <div class="audience-type txt-en">Brand Builders</div>
-        <h3 class="audience-name txt-id">Visual premium, <em>biaya minimal</em></h3>
-        <h3 class="audience-name txt-en">Premium visuals, <em>minimal cost</em></h3>
-        <p class="audience-pain txt-id">Brand butuh visual kuat tapi budget untuk fotografer atau art director terlalu tinggi untuk stage ini.</p>
-        <p class="audience-pain txt-en">Your brand needs strong visuals but a photographer or art director budget is too high for this stage.</p>
-        <p class="audience-outcome txt-id">Bangun identitas visual brand yang kuat tanpa biaya produksi besar.</p>
-        <p class="audience-outcome txt-en">Build a strong brand visual identity without heavy production costs.</p>
+        <div class="audience-icon">✦</div>
+        <div class="audience-type txt-id">Mahir</div>
+        <div class="audience-type txt-en">Advanced</div>
+        <h3 class="audience-name txt-id">Hasilkan prompt<br>kustom <em>kapan saja</em></h3>
+        <h3 class="audience-name txt-en">Generate custom<br>prompts <em>on demand</em></h3>
+        <p class="audience-pain txt-id">Sudah tahu cara kerja AI image, tapi membuat prompt dari nol untuk setiap brief klien masih memakan waktu dan energi.</p>
+        <p class="audience-pain txt-en">You know how AI image works, but building prompts from scratch for every client brief still costs too much time and energy.</p>
+        <p class="audience-outcome txt-id">Cheat System Generator membangun prompt spesifik secara otomatis — masukkan referensi, dapatkan prompt siap pakai dalam detik.</p>
+        <p class="audience-outcome txt-en">The Cheat System Generator builds specific prompts automatically — input your reference, get a ready-to-use prompt in seconds.</p>
       </div>
     </div>
   </div>
@@ -2272,18 +3486,18 @@ footer {
 <section class="section" id="bundles">
   <div class="section-inner">
     <div class="reveal">
-      <div class="section-tag txt-id">Paket Bundle</div>
-      <div class="section-tag txt-en">Bundle Packages</div>
-      <h2 class="section-headline txt-id">Pilih <em>level</em>-mu</h2>
-      <h2 class="section-headline txt-en">Choose your <em>level</em></h2>
-      <p class="section-sub txt-id">Setiap bundle dirancang untuk kebutuhan spesifik — bukan sekadar kumpulan file, tapi sistem yang bekerja.</p>
-      <p class="section-sub txt-en">Every bundle is designed for a specific need — not just a file collection, but a system that works.</p>
+      <div class="section-tag txt-id">Paket Sistem Lengkap</div>
+      <div class="section-tag txt-en">Complete System Package</div>
+      <h2 class="section-headline txt-id">Satu paket.<br><em>Semua yang kamu butuhkan.</em></h2>
+      <h2 class="section-headline txt-en">One package.<br><em>Everything you need.</em></h2>
+      <p class="section-sub txt-id">Bukan kumpulan file biasa — ini sistem visual lengkap yang dirancang untuk bekerja bersama dari hari pertama.</p>
+      <p class="section-sub txt-en">Not just a file collection — this is a complete visual system designed to work together from day one.</p>
     </div>
     <div class="bundle-grid">
       <!-- Ultimate Bundle -->
       <div class="bundle-card featured reveal reveal-d2" onclick="openModal('paket2')">
-        <div class="bundle-badge txt-id">Terlaris</div>
-        <div class="bundle-badge txt-en">Best Value</div>
+        <div class="bundle-badge txt-id">&#9733; Pilihan Terbaik</div>
+        <div class="bundle-badge txt-en">&#9733; Best Choice</div>
         <div class="bundle-img-wrap">
           <div class="uv-wrap">
             <!-- ambient glows -->
@@ -2344,35 +3558,47 @@ footer {
           </div>
         </div>
         <div class="bundle-card-body">
-          <div class="bundle-for txt-id">Untuk Profesional &amp; Freelancer</div>
-          <div class="bundle-for txt-en">For Professionals &amp; Freelancers</div>
+          <!-- PROMO COUNTDOWN TIMER -->
+          <div class="bundle-timer" id="bundle-timer">
+            <div class="timer-label txt-id">&#9679; Harga promo berakhir dalam</div>
+            <div class="timer-label txt-en">&#9679; Promo price ends in</div>
+            <div class="timer-digits">
+              <div class="timer-unit"><span class="timer-num" id="t-hours">00</span><span class="timer-sub txt-id">Jam</span><span class="timer-sub txt-en">Hrs</span></div>
+              <span class="timer-colon">:</span>
+              <div class="timer-unit"><span class="timer-num" id="t-mins">00</span><span class="timer-sub txt-id">Menit</span><span class="timer-sub txt-en">Min</span></div>
+              <span class="timer-colon">:</span>
+              <div class="timer-unit"><span class="timer-num" id="t-secs">00</span><span class="timer-sub txt-id">Detik</span><span class="timer-sub txt-en">Sec</span></div>
+            </div>
+          </div>
+          <div class="bundle-for txt-id">Sistem Terlengkap — 3 Produk dalam 1</div>
+          <div class="bundle-for txt-en">Most Complete System — 3 Products in 1</div>
           <div class="bundle-card-label txt-id">Ultimate Bundle</div>
           <div class="bundle-card-label txt-en">Ultimate Bundle</div>
-          <h3 class="bundle-card-name txt-id">Kuasai ekosistem<br>AI Image <em>lengkap</em></h3>
-          <h3 class="bundle-card-name txt-en">Master the complete<br>AI Image <em>ecosystem</em></h3>
-          <p class="bundle-outcome txt-id">Paket paling lengkap — sistem panduan, generator, dan 400+ prompt untuk segala kebutuhan visual profesional.</p>
-          <p class="bundle-outcome txt-en">The most complete package — guide system, generator, and 400+ prompts for every professional visual need.</p>
+          <h3 class="bundle-card-name txt-id">Dari nol ke<br>output <em>profesional</em></h3>
+          <h3 class="bundle-card-name txt-en">From zero to<br><em>professional</em> output</h3>
+          <p class="bundle-outcome txt-id">Panduan untuk memahami. Generator untuk menciptakan. 400+ prompt untuk langsung menghasilkan. Ini bukan sekadar file — ini adalah sistem lengkap yang bekerja dari hari pertama.</p>
+          <p class="bundle-outcome txt-en">A guide to understand. A generator to create. 400+ prompts to produce immediately. Not just files — a complete system that works from day one.</p>
           <ul class="bundle-items">
-            <li class="txt-id">E-Book Panduan AI Image Generation</li>
-            <li class="txt-en">AI Image Generation E-Book Guide</li>
-            <li class="txt-id">Cheat System Generator AI</li>
-            <li class="txt-en">AI Cheat System Generator</li>
-            <li class="txt-id">400+ Prompt Pack (semua kategori)</li>
-            <li class="txt-en">400+ Prompt Pack (all categories)</li>
+            <li class="txt-id"><strong style="color:var(--cream);font-weight:400;">E-Book Panduan</strong> &nbsp;— Fondasi &amp; logika prompting</li>
+            <li class="txt-en"><strong style="color:var(--cream);font-weight:400;">E-Book Guide</strong> &nbsp;— Foundation &amp; prompting logic</li>
+            <li class="txt-id"><strong style="color:var(--cream);font-weight:400;">Cheat System Generator</strong> &nbsp;— Prompt kustom otomatis</li>
+            <li class="txt-en"><strong style="color:var(--cream);font-weight:400;">Cheat System Generator</strong> &nbsp;— Automated custom prompts</li>
+            <li class="txt-id"><strong style="color:var(--cream);font-weight:400;">400+ Prompt Pack</strong> &nbsp;— Koleksi hyper-realistic siap pakai</li>
+            <li class="txt-en"><strong style="color:var(--cream);font-weight:400;">400+ Prompt Pack</strong> &nbsp;— Ready-to-use hyper-realistic collection</li>
           </ul>
           <div class="bundle-footer">
             <div class="bundle-price-group">
               <span class="bundle-price" data-id="Rp 100.000" data-en="$14.99">Rp 100.000 <span class="bundle-price-orig" data-id="Rp 175.000" data-en="$21.99">Rp 175.000</span></span>
-              <span class="bundle-savings txt-id">Hemat Rp 75.000 — Akses penuh</span>
-              <span class="bundle-savings txt-en">Save $7.00 — Full access</span>
+              <span class="bundle-savings txt-id">Hemat 43% &mdash; Akses penuh ketiga produk</span>
+              <span class="bundle-savings txt-en">Save 32% &mdash; Full access to all three products</span>
             </div>
             <button class="btn-primary" onclick="event.stopPropagation(); openModal('paket2')">
-              <span class="txt-id">Dapatkan Semua</span>
-              <span class="txt-en">Get Everything</span>
+              <span class="txt-id">Ambil Sekarang</span>
+              <span class="txt-en">Get It Now</span>
             </button>
           </div>
-          <div class="bundle-urgency txt-id">Bonus eksklusif termasuk</div>
-          <div class="bundle-urgency txt-en">Exclusive bonus included</div>
+          <div class="bundle-urgency txt-id">&#10003; Akses langsung · Digital download · Tanpa langganan</div>
+          <div class="bundle-urgency txt-en">&#10003; Instant access · Digital download · No subscription</div>
         </div>
       </div>
     </div>
@@ -2383,12 +3609,12 @@ footer {
 <section class="section section-alt" id="products">
   <div class="section-inner">
     <div class="reveal">
-      <div class="section-tag txt-id">Produk Individual</div>
-      <div class="section-tag txt-en">Individual Products</div>
-      <h2 class="section-headline txt-id">Atau mulai dari<br><em>satu produk</em></h2>
-      <h2 class="section-headline txt-en">Or start with<br><em>one product</em></h2>
-      <p class="section-sub txt-id">Pilih sesuai kebutuhanmu. Setiap produk berdiri sendiri dan langsung bisa digunakan.</p>
-      <p class="section-sub txt-en">Choose what fits your needs. Each product stands alone and is immediately usable.</p>
+      <div class="section-tag txt-id">Atau Mulai dari Satu</div>
+      <div class="section-tag txt-en">Or Start With One</div>
+      <h2 class="section-headline txt-id">Pilih produk yang<br>paling kamu <em>butuhkan</em></h2>
+      <h2 class="section-headline txt-en">Pick the product<br>you <em>need most</em></h2>
+      <p class="section-sub txt-id">Setiap produk dirancang untuk memberikan nilai spesifik yang nyata. Berdiri sendiri, langsung bisa digunakan, dan terasa hasilnya dari hari pertama.</p>
+      <p class="section-sub txt-en">Each product delivers specific, real value on its own. Standalone, immediately usable, and you'll feel the difference from day one.</p>
     </div>
     <div class="products-grid">
       <!-- E-Book -->
@@ -2398,26 +3624,26 @@ footer {
         </div>
         <div class="product-card-body">
           <div class="product-use-tag">
-            <span class="product-use-chip">Foundation</span>
-            <span class="product-use-chip">Branding</span>
-            <span class="product-use-chip">Social Media</span>
+            <span class="product-use-chip txt-id">Pemula → Mahir</span>
+            <span class="product-use-chip txt-en">Beginner → Expert</span>
+            <span class="product-use-chip">10 Bab · PDF</span>
           </div>
           <div class="product-card-type txt-id">E-Book Panduan</div>
           <div class="product-card-type txt-en">E-Book Guide</div>
-          <h3 class="product-card-name txt-id">Panduan AI Image Generation</h3>
-          <h3 class="product-card-name txt-en">AI Image Generation Guide</h3>
-          <p class="product-outcome txt-id">"Pahami cara kerja AI image dari akarnya."</p>
-          <p class="product-outcome txt-en">"Understand how AI image works from the root."</p>
-          <p class="product-card-desc txt-id">Panduan komprehensif yang menjelaskan logika di balik AI image generation — bukan teori, tapi framework yang langsung bisa dipraktikkan.</p>
-          <p class="product-card-desc txt-en">A comprehensive guide explaining the logic behind AI image generation — not theory, but a framework you can apply immediately.</p>
+          <h3 class="product-card-name txt-id">Menguasai AI Image<br>dari akarnya</h3>
+          <h3 class="product-card-name txt-en">Master AI Image<br>from the ground up</h3>
+          <p class="product-outcome txt-id">"Bukan cuma tips — ini adalah cara berpikir yang mengubah semua hasilmu."</p>
+          <p class="product-outcome txt-en">"Not just tips — this is the mindset shift that changes all your results."</p>
+          <p class="product-card-desc txt-id">10 bab yang membangun pemahaman nyata tentang AI image generation — dari dasar prompt hingga kontrol gaya, pencahayaan, dan komposisi. Setelah baca ini, kamu tidak akan lagi menebak-nebak.</p>
+          <p class="product-card-desc txt-en">10 chapters that build real understanding of AI image generation — from prompt basics to controlling style, lighting, and composition. After this, you'll stop guessing.</p>
           <div class="product-card-footer">
             <div>
               <span class="product-price" data-id="Rp 75.000" data-en="$8.99">Rp 75.000</span>
               <span class="product-price-orig" data-id="Rp 100.000" data-en="$11.99">Rp 100.000</span>
             </div>
             <button class="product-btn">
-              <span class="txt-id">Dapatkan</span>
-              <span class="txt-en">Get It</span>
+              <span class="txt-id">Dapatkan E-Book</span>
+              <span class="txt-en">Get The E-Book</span>
             </button>
           </div>
         </div>
@@ -2429,26 +3655,27 @@ footer {
         </div>
         <div class="product-card-body">
           <div class="product-use-tag">
-            <span class="product-use-chip">Quick Reference</span>
-            <span class="product-use-chip">Efficiency</span>
-            <span class="product-use-chip">Workflow</span>
+            <span class="product-use-chip txt-id">Custom GPT · Otomatis</span>
+            <span class="product-use-chip txt-en">Custom GPT · Automated</span>
+            <span class="product-use-chip txt-id">Semua Level</span>
+            <span class="product-use-chip txt-en">All Levels</span>
           </div>
-          <div class="product-card-type txt-id">Cheat Sheet</div>
-          <div class="product-card-type txt-en">Cheat Sheet</div>
-          <h3 class="product-card-name txt-id">Cheat Generator AI</h3>
-          <h3 class="product-card-name txt-en">AI Cheat Generator</h3>
-          <p class="product-outcome txt-id">"Jalankan AI image tool seperti profesional berpengalaman."</p>
-          <p class="product-outcome txt-en">"Run AI image tools like a seasoned professional."</p>
-          <p class="product-card-desc txt-id">Referensi cepat yang merangkum semua parameter, style, dan command penting — tempel di layar, langsung produktif.</p>
-          <p class="product-card-desc txt-en">A quick reference covering all key parameters, styles, and commands — pin it to your screen and stay productive.</p>
+          <div class="product-card-type txt-id">Sistem Generator Prompt</div>
+          <div class="product-card-type txt-en">Prompt Generator System</div>
+          <h3 class="product-card-name txt-id">Prompt kustom<br>dalam hitungan detik</h3>
+          <h3 class="product-card-name txt-en">Custom prompts<br>in seconds</h3>
+          <p class="product-outcome txt-id">"Masukkan referensi visual kamu — sistem ini yang membangun promptnya."</p>
+          <p class="product-outcome txt-en">"Input your visual reference — the system builds the prompt for you."</p>
+          <p class="product-card-desc txt-id">Custom GPT berbasis sistem Aurelea yang mengubah input sederhana menjadi prompt terstruktur dan siap pakai. Tidak perlu hafal formula — biarkan sistemnya yang bekerja.</p>
+          <p class="product-card-desc txt-en">A Custom GPT powered by the Aurelea system that turns simple input into structured, ready-to-use prompts. No formula to memorize — let the system do the work.</p>
           <div class="product-card-footer">
             <div>
               <span class="product-price" data-id="Rp 50.000" data-en="$6.50">Rp 50.000</span>
               <span class="product-price-orig" data-id="Rp 80.000" data-en="$9.99">Rp 80.000</span>
             </div>
             <button class="product-btn">
-              <span class="txt-id">Dapatkan</span>
-              <span class="txt-en">Get It</span>
+              <span class="txt-id">Dapatkan Generator</span>
+              <span class="txt-en">Get The Generator</span>
             </button>
           </div>
         </div>
@@ -2460,26 +3687,26 @@ footer {
         </div>
         <div class="product-card-body">
           <div class="product-use-tag">
-            <span class="product-use-chip">Content</span>
-            <span class="product-use-chip">Portfolio</span>
-            <span class="product-use-chip">Ads</span>
+            <span class="product-use-chip txt-id">Portrait · Editorial · Commercial</span>
+            <span class="product-use-chip txt-en">Portrait · Editorial · Commercial</span>
+            <span class="product-use-chip">Web Access</span>
           </div>
-          <div class="product-card-type txt-id">Prompt Collection</div>
-          <div class="product-card-type txt-en">Prompt Collection</div>
-          <h3 class="product-card-name txt-id">400+ Prompt Pack</h3>
-          <h3 class="product-card-name txt-en">400+ Prompt Pack</h3>
-          <p class="product-outcome txt-id">"Koleksi prompt siap pakai untuk segala kebutuhan visual."</p>
-          <p class="product-outcome txt-en">"Ready-to-use prompts for every visual need."</p>
-          <p class="product-card-desc txt-id">400+ prompt yang dikurasi secara klinis — mencakup portrait, lifestyle, editorial, commercial, dan banyak lagi. Copy, paste, hasilkan.</p>
-          <p class="product-card-desc txt-en">400+ clinically curated prompts — covering portrait, lifestyle, editorial, commercial, and more. Copy, paste, generate.</p>
+          <div class="product-card-type txt-id">Koleksi Prompt Premium</div>
+          <div class="product-card-type txt-en">Premium Prompt Collection</div>
+          <h3 class="product-card-name txt-id">400+ prompt yang<br>langsung bekerja</h3>
+          <h3 class="product-card-name txt-en">400+ prompts that<br>work immediately</h3>
+          <p class="product-outcome txt-id">"Setiap prompt sudah diuji — bukan dikumpulkan, tapi dikurasi."</p>
+          <p class="product-outcome txt-en">"Every prompt has been tested — not collected, but curated."</p>
+          <p class="product-card-desc txt-id">400+ prompt hyper-realistic yang mencakup semua kategori visual — portrait, lifestyle, editorial, commercial, fashion, dan arsitektur. Diuji langsung, konsisten di berbagai AI image tool.</p>
+          <p class="product-card-desc txt-en">400+ hyper-realistic prompts across all visual categories — portrait, lifestyle, editorial, commercial, fashion, and architecture. Tested firsthand, consistent across AI image tools.</p>
           <div class="product-card-footer">
             <div>
               <span class="product-price" data-id="Rp 50.000" data-en="$6.50">Rp 50.000</span>
               <span class="product-price-orig" data-id="Rp 75.000" data-en="$9.99">Rp 75.000</span>
             </div>
             <button class="product-btn">
-              <span class="txt-id">Dapatkan</span>
-              <span class="txt-en">Get It</span>
+              <span class="txt-id">Dapatkan Prompt Pack</span>
+              <span class="txt-en">Get The Prompt Pack</span>
             </button>
           </div>
         </div>
@@ -2492,34 +3719,34 @@ footer {
 <section class="section" id="how">
   <div class="section-inner">
     <div class="reveal">
-      <div class="section-tag txt-id">Cara Kerja</div>
-      <div class="section-tag txt-en">How It Works</div>
-      <h2 class="section-headline txt-id">Dari beli sampai<br><em>hasilkan</em> — 4 langkah</h2>
-      <h2 class="section-headline txt-en">From purchase to<br><em>generate</em> — 4 steps</h2>
+      <div class="section-tag txt-id">Mulai Hari Ini</div>
+      <div class="section-tag txt-en">Start Today</div>
+      <h2 class="section-headline txt-id">Dalam 4 langkah,<br>kamu sudah <em>menghasilkan</em></h2>
+      <h2 class="section-headline txt-en">In 4 steps,<br>you're already <em>generating</em></h2>
     </div>
     <div class="how-grid">
-      <div class="how-step reveal reveal-d1">
+      <div data-step="01" class="how-step reveal reveal-d1">
         <div class="how-num">01</div>
         <div class="how-title txt-id">Pilih Produk</div>
         <div class="how-title txt-en">Choose Your Pack</div>
         <p class="how-desc txt-id">Pilih bundle atau produk yang sesuai kebutuhanmu — starter atau ultimate, semuanya langsung bisa digunakan.</p>
         <p class="how-desc txt-en">Pick the bundle or product that fits your needs — starter or ultimate, everything is immediately usable.</p>
       </div>
-      <div class="how-step reveal reveal-d2">
+      <div data-step="02" class="how-step reveal reveal-d2">
         <div class="how-num">02</div>
         <div class="how-title txt-id">Buka &amp; Pelajari</div>
         <div class="how-title txt-en">Open &amp; Learn</div>
         <p class="how-desc txt-id">Baca panduan singkat atau langsung buka koleksi prompt. Sistem ini dirancang agar mudah dipahami dari menit pertama.</p>
         <p class="how-desc txt-en">Read the quick guide or go straight to the prompt collection. This system is designed to be understood from minute one.</p>
       </div>
-      <div class="how-step reveal reveal-d3">
+      <div data-step="03" class="how-step reveal reveal-d3">
         <div class="how-num">03</div>
         <div class="how-title txt-id">Copy &amp; Generate</div>
         <div class="how-title txt-en">Copy &amp; Generate</div>
         <p class="how-desc txt-id">Salin prompt yang kamu pilih, tempel ke AI image tool-mu, dan hasilkan visual berkualitas tinggi dalam hitungan detik.</p>
         <p class="how-desc txt-en">Copy your chosen prompt, paste it into your AI image tool, and generate high-quality visuals in seconds.</p>
       </div>
-      <div class="how-step reveal reveal-d4">
+      <div data-step="04" class="how-step reveal reveal-d4">
         <div class="how-num">04</div>
         <div class="how-title txt-id">Gunakan &amp; Berkembang</div>
         <div class="how-title txt-en">Use &amp; Grow</div>
@@ -2646,7 +3873,7 @@ footer {
       <a href="/cdn-cgi/l/email-protection#dcbdbfa9b8e9ece4eae89cbbb1bdb5b0f2bfb3b1" class="modal-opt">
         <div class="modal-opt-info">
           <span class="modal-opt-name">✉ Email</span>
-          <span class="modal-opt-sub">acud50864@gmail.com</span>
+          <span class="modal-opt-sub"><span class="__cf_email__" data-cfemail="19787a6c7d2c29212f2d597e74787075377a7674">[email&#160;protected]</span></span>
         </div>
         <span class="modal-opt-arr">&rarr;</span>
       </a>
@@ -2693,8 +3920,8 @@ footer {
       <div style="border-top:1px solid var(--border); padding-top:1.2rem;">
         <p style="font-size:.63rem; letter-spacing:.18em; text-transform:uppercase; color:var(--ocean); font-weight:500; margin-bottom:.6rem;" class="txt-id">5. Kontak</p>
         <p style="font-size:.63rem; letter-spacing:.18em; text-transform:uppercase; color:var(--ocean); font-weight:500; margin-bottom:.6rem;" class="txt-en">5. Contact</p>
-        <p style="font-size:.8rem; color:var(--cream-dim); line-height:1.85; font-weight:300;" class="txt-id">Pertanyaan seputar kebijakan privasi ini dapat dikirim ke: <strong style="color:var(--cream-dim);">acud50864@gmail.com</strong></p>
-        <p style="font-size:.8rem; color:var(--cream-dim); line-height:1.85; font-weight:300;" class="txt-en">Questions about this privacy policy can be sent to: <strong style="color:var(--cream-dim);">acud50864@gmail.com</strong></p>
+        <p style="font-size:.8rem; color:var(--cream-dim); line-height:1.85; font-weight:300;" class="txt-id">Pertanyaan seputar kebijakan privasi ini dapat dikirim ke: <strong style="color:var(--cream-dim);"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="dfbebcaabbeaefe7e9eb9fb8b2beb6b3f1bcb0b2">[email&#160;protected]</a></strong></p>
+        <p style="font-size:.8rem; color:var(--cream-dim); line-height:1.85; font-weight:300;" class="txt-en">Questions about this privacy policy can be sent to: <strong style="color:var(--cream-dim);"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="a8c9cbddcc9d98909e9ce8cfc5c9c1c486cbc7c5">[email&#160;protected]</a></strong></p>
       </div>
     </div>
   </div>
@@ -2746,7 +3973,7 @@ footer {
   </div>
 </div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // Scroll + progress
 window.addEventListener('scroll', () => {
   const s = document.documentElement.scrollTop;
@@ -2869,8 +4096,76 @@ function openPolicy() { document.getElementById('policy-overlay').classList.add(
 function closePolicy() { document.getElementById('policy-overlay').classList.remove('open'); }
 function closePolicyOut(e) { if (e.target === document.getElementById('policy-overlay')) closePolicy(); }
 function openTerms() { document.getElementById('terms-overlay').classList.add('open'); }
-function closeTerms() { document.getElementById('terms-overlay').classList.remove('open'); }
-function closeTermsOut(e) { if (e.target === document.getElementById('terms-overlay')) closeTerms(); }
+// Countdown timer — resets daily at midnight local time
+(function() {
+  function getTarget() {
+    const now = new Date();
+    const t = new Date(now);
+    t.setHours(23, 59, 59, 0);
+    return t;
+  }
+  function updateTimer() {
+    const now = new Date();
+    const diff = getTarget() - now;
+    if (diff <= 0) { updateTimer(); return; }
+    const h = Math.floor(diff / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const s = Math.floor((diff % 60000) / 1000);
+    const pad = n => String(n).padStart(2, '0');
+    const eh = document.getElementById('t-hours');
+    const em = document.getElementById('t-mins');
+    const es = document.getElementById('t-secs');
+    if (eh) eh.textContent = pad(h);
+    if (em) em.textContent = pad(m);
+    if (es) es.textContent = pad(s);
+  }
+  updateTimer();
+  setInterval(updateTimer, 1000);
+})();
+
+// ─── HVX editorial showcase: tab switching + gentle autoplay ───
+(function() {
+  const tabs = document.querySelectorAll('.hvx-tab');
+  const covers = document.querySelectorAll('.hvx-cover');
+  if (!tabs.length || !covers.length) return;
+
+  let autoplay = true;
+  let idx = 0;
+
+  function activate(id) {
+    tabs.forEach(t => {
+      const active = t.getAttribute('data-tab') === id;
+      t.classList.toggle('is-active', active);
+      t.setAttribute('aria-selected', active ? 'true' : 'false');
+    });
+    covers.forEach(c => {
+      c.classList.toggle('is-active', c.getAttribute('data-layer') === id);
+    });
+  }
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      autoplay = false;
+      activate(tab.getAttribute('data-tab'));
+    });
+    // refined preview on pointer enter (desktop only)
+    tab.addEventListener('pointerenter', (e) => {
+      if (e.pointerType !== 'mouse') return;
+      activate(tab.getAttribute('data-tab'));
+    });
+  });
+
+  // gentle auto-cycle until user interacts
+  const stage = document.querySelector('.hvx-stage');
+  if (stage) {
+    stage.addEventListener('pointerenter', () => { autoplay = false; }, { once: true });
+  }
+  setInterval(() => {
+    if (!autoplay) return;
+    idx = (idx + 1) % 3;
+    activate(String(idx + 1));
+  }, 5200);
+})();
 </script>
 </body>
 </html>
