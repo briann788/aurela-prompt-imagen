@@ -930,7 +930,6 @@ nav.scrolled {
   gap: 1rem;
   flex-wrap: wrap;
 }
-.bundle-price-group {}
 .bundle-price {
   font-family: var(--serif);
   font-size: clamp(1.7rem, 2.8vw, 2.4rem);
@@ -2344,13 +2343,18 @@ nav.scrolled {
 /* ── BUNDLE UPGRADE ── */
 .bundle-grid { max-width: 900px !important; }
 .bundle-card { background: transparent !important; border-color: var(--line) !important; }
-.bundle-card.featured { border-color: rgba(59,189,214,0.15) !important; box-shadow: 0 50px 130px rgba(0,0,0,0.55), inset 0 1px 0 rgba(59,189,214,0.08) !important; }
-.bundle-card.featured:hover { border-color: rgba(59,189,214,0.28) !important; box-shadow: 0 60px 160px rgba(0,0,0,0.6), 0 0 80px rgba(59,189,214,0.08), inset 0 1px 0 rgba(59,189,214,0.12) !important; }
+.bundle-card.featured { border-color: rgba(59,189,214,0.22) !important; }
+.bundle-card.featured:hover { border-color: rgba(59,189,214,0.38) !important; }
 .bundle-img-wrap { padding-bottom: 52% !important; }
 .bundle-card-name { font-size: clamp(1.9rem, 3vw, 2.9rem) !important; letter-spacing: -.02em !important; line-height: 1.04 !important; }
 .bundle-price { font-size: clamp(2.1rem, 3.8vw, 3rem) !important; letter-spacing: -.03em !important; }
 .bundle-card.featured .bundle-price { color: var(--ocean-light) !important; }
-.bundle-badge { background: linear-gradient(135deg, var(--ocean), var(--ocean-light)) !important; box-shadow: 0 4px 20px rgba(59,189,214,0.28) !important; font-size: .52rem !important; }
+.bundle-badge { background: linear-gradient(135deg, var(--ocean), var(--ocean-light)) !important; box-shadow: 0 2px 8px rgba(0,0,0,0.25) !important; font-size: .52rem !important; }
+/* KILL bar/banner elements on featured card that were creating sticky top/bottom bars */
+.bundle-card.featured .bundle-badge,
+.bundle-card.featured .bundle-flag,
+.bundle-card.featured .bundle-shimmer,
+.bundle-card.featured .ubn3-scan { display: none !important; }
 .bundle-card-body { padding: clamp(1.6rem, 2.8vw, 2.6rem) !important; }
 
 /* ── PRODUCT CARDS ── */
@@ -3176,147 +3180,99 @@ body::after {
 
   <!-- RIGHT — cinematic showcase panel -->
   <div class="hero-visual">
-    <div class="hvx-stage" style="opacity:0;animation:fadeIn 1.2s ease .4s forwards;">
-      <!-- ambient atmosphere -->
-      <div class="hvx-glow hvx-glow-a"></div>
-      <div class="hvx-glow hvx-glow-b"></div>
-      <div class="hvx-grid-faint"></div>
+    <div class="hnv-stage">
+      <!-- ambient glow -->
+      <div class="hnv-aura hnv-aura-1"></div>
+      <div class="hnv-aura hnv-aura-2"></div>
+      <div class="hnv-grid"></div>
 
-      <!-- top metadata rail -->
-      <div class="hvx-top">
-        <div class="hvx-top-left">
-          <span class="hvx-brand">Aurelea</span>
-          <span class="hvx-dot">·</span>
-          <span class="hvx-edition">Vol. I / Edition 2026</span>
+      <!-- orbit rings -->
+      <div class="hnv-ring hnv-ring-1"></div>
+      <div class="hnv-ring hnv-ring-2"></div>
+
+      <!-- center magazine cover -->
+      <div class="hnv-cover">
+        <div class="hnv-cover-top">
+          <span class="hnv-brand-mark">A</span>
+          <span class="hnv-issue">VOL · MMXXVI</span>
         </div>
-        <div class="hvx-top-right">
-          <span class="hvx-live-dot"></span>
-          <span class="hvx-live-label txt-id">Sistem Aktif</span>
-          <span class="hvx-live-label txt-en">System Live</span>
+        <div class="hnv-cover-core">
+          <span class="hnv-kicker txt-id">PROMPT SYSTEM</span>
+          <span class="hnv-kicker txt-en">PROMPT SYSTEM</span>
+          <h4 class="hnv-title">Aurelea<em>.</em></h4>
+          <span class="hnv-sub txt-id">Editorial · Commercial · Portrait</span>
+          <span class="hnv-sub txt-en">Editorial · Commercial · Portrait</span>
         </div>
+        <div class="hnv-cover-foot">
+          <span class="hnv-foot-num">400<em>+</em></span>
+          <span class="hnv-foot-lbl txt-id">Prompt Terkurasi</span>
+          <span class="hnv-foot-lbl txt-en">Curated Prompts</span>
+        </div>
+        <div class="hnv-cover-shine"></div>
       </div>
 
-      <!-- main editorial showcase -->
-      <div class="hvx-showcase">
-        <!-- layered ghost cards for depth -->
-        <div class="hvx-back hvx-back-2"></div>
-        <div class="hvx-back hvx-back-1"></div>
-
-        <!-- cover 1 — e-book guide -->
-        <article class="hvx-cover is-active" data-layer="1">
-          <div class="hvx-cover-label">
-            <span class="hvx-cover-idx">01 / 03</span>
-            <span class="hvx-cover-kind">Editorial Guide</span>
-          </div>
-          <div class="hvx-cover-art hvx-art-ebook">
-            <div class="hvx-ebook-face">
-              <div class="hvx-ebook-emblem">A</div>
-              <div class="hvx-ebook-rule"></div>
-              <span class="hvx-ebook-small">Aurelea Press</span>
-            </div>
-          </div>
-          <div class="hvx-cover-meta">
-            <h3 class="hvx-cover-title txt-id">E&#8209;Book <em>Panduan</em></h3>
-            <h3 class="hvx-cover-title txt-en">The <em>Guide</em></h3>
-            <p class="hvx-cover-desc txt-id">Fondasi sistem prompt dalam sepuluh bab kurasi editorial.</p>
-            <p class="hvx-cover-desc txt-en">Foundations of the prompt system in ten curated chapters.</p>
-          </div>
-        </article>
-
-        <!-- cover 2 — cheat system -->
-        <article class="hvx-cover" data-layer="2">
-          <div class="hvx-cover-label">
-            <span class="hvx-cover-idx">02 / 03</span>
-            <span class="hvx-cover-kind">Generator Core</span>
-          </div>
-          <div class="hvx-cover-art hvx-art-cheat">
-            <div class="hvx-cheat-row"><span class="hvx-cheat-dot"></span><span class="hvx-cheat-line"></span></div>
-            <div class="hvx-cheat-row"><span class="hvx-cheat-dot on"></span><span class="hvx-cheat-line long"></span></div>
-            <div class="hvx-cheat-row"><span class="hvx-cheat-dot"></span><span class="hvx-cheat-line mid"></span></div>
-            <div class="hvx-cheat-out">
-              <span class="hvx-cheat-out-dot"></span>
-              <span class="hvx-cheat-out-label txt-id">Prompt Siap</span>
-              <span class="hvx-cheat-out-label txt-en">Prompt Ready</span>
-            </div>
-          </div>
-          <div class="hvx-cover-meta">
-            <h3 class="hvx-cover-title txt-id">Cheat <em>System</em></h3>
-            <h3 class="hvx-cover-title txt-en">Cheat <em>System</em></h3>
-            <p class="hvx-cover-desc txt-id">Custom GPT yang merangkai prompt kompleks dalam hitungan detik.</p>
-            <p class="hvx-cover-desc txt-en">A custom GPT that composes complex prompts in seconds.</p>
-          </div>
-        </article>
-
-        <!-- cover 3 — prompt pack -->
-        <article class="hvx-cover" data-layer="3">
-          <div class="hvx-cover-label">
-            <span class="hvx-cover-idx">03 / 03</span>
-            <span class="hvx-cover-kind">Prompt Collection</span>
-          </div>
-          <div class="hvx-cover-art hvx-art-pack">
-            <div class="hvx-pack-grid">
-              <div class="hvx-pack-cell"></div>
-              <div class="hvx-pack-cell alt"></div>
-              <div class="hvx-pack-cell"></div>
-              <div class="hvx-pack-cell alt"></div>
-              <div class="hvx-pack-cell"></div>
-              <div class="hvx-pack-cell alt"></div>
-            </div>
-            <div class="hvx-pack-count"><span>400<em>+</em></span></div>
-          </div>
-          <div class="hvx-cover-meta">
-            <h3 class="hvx-cover-title txt-id">Prompt <em>Pack</em></h3>
-            <h3 class="hvx-cover-title txt-en">Prompt <em>Pack</em></h3>
-            <p class="hvx-cover-desc txt-id">Koleksi 400+ prompt hyper&#8209;realistic yang siap pakai.</p>
-            <p class="hvx-cover-desc txt-en">A 400+ collection of hyper&#8209;realistic, ready&#8209;to&#8209;use prompts.</p>
-          </div>
-        </article>
-
-        <!-- floating proof badge -->
-        <aside class="hvx-proof">
-          <span class="hvx-proof-num">400<em>+</em></span>
-          <span class="hvx-proof-label txt-id">Prompt Terkurasi</span>
-          <span class="hvx-proof-label txt-en">Curated Prompts</span>
-        </aside>
+      <!-- floating product badges -->
+      <div class="hnv-chip hnv-chip-ebook">
+        <span class="hnv-chip-idx">01</span>
+        <span class="hnv-chip-txt txt-id">E-Book Panduan</span>
+        <span class="hnv-chip-txt txt-en">The Guide</span>
+      </div>
+      <div class="hnv-chip hnv-chip-cheat">
+        <span class="hnv-chip-idx">02</span>
+        <span class="hnv-chip-txt">Cheat System</span>
+      </div>
+      <div class="hnv-chip hnv-chip-pack">
+        <span class="hnv-chip-idx">03</span>
+        <span class="hnv-chip-txt">Prompt Pack</span>
       </div>
 
-      <!-- category metadata rail -->
-      <div class="hvx-cats">
-        <span class="hvx-cat">Editorial</span>
-        <span class="hvx-cat-sep"></span>
-        <span class="hvx-cat">Commercial</span>
-        <span class="hvx-cat-sep"></span>
-        <span class="hvx-cat">Portrait</span>
-        <span class="hvx-cat-sep"></span>
-        <span class="hvx-cat">Hyper Realistic</span>
-      </div>
-
-      <!-- tab strip -->
-      <div class="hvx-tabs" role="tablist" aria-label="Product system layers">
-        <button class="hvx-tab is-active" data-tab="1" type="button" role="tab" aria-selected="true">
-          <span class="hvx-tab-idx">01</span>
-          <span class="hvx-tab-body">
-            <span class="hvx-tab-name txt-id">E&#8209;Book Panduan</span>
-            <span class="hvx-tab-name txt-en">E&#8209;Book Guide</span>
-            <span class="hvx-tab-kind">Foundations</span>
-          </span>
-        </button>
-        <button class="hvx-tab" data-tab="2" type="button" role="tab" aria-selected="false">
-          <span class="hvx-tab-idx">02</span>
-          <span class="hvx-tab-body">
-            <span class="hvx-tab-name">Cheat System</span>
-            <span class="hvx-tab-kind">Custom GPT</span>
-          </span>
-        </button>
-        <button class="hvx-tab" data-tab="3" type="button" role="tab" aria-selected="false">
-          <span class="hvx-tab-idx">03</span>
-          <span class="hvx-tab-body">
-            <span class="hvx-tab-name">Prompt Pack</span>
-            <span class="hvx-tab-kind">400+ Curated</span>
-          </span>
-        </button>
+      <!-- live status -->
+      <div class="hnv-live">
+        <span class="hnv-live-dot"></span>
+        <span class="txt-id">Sistem Aktif</span>
+        <span class="txt-en">System Live</span>
       </div>
     </div>
+
+    <style>
+      .hnv-stage{position:relative;width:100%;height:100%;min-height:560px;display:flex;align-items:center;justify-content:center;overflow:hidden;border-radius:18px;background:radial-gradient(ellipse at 30% 20%,rgba(64,120,200,.18),transparent 55%),radial-gradient(ellipse at 70% 80%,rgba(30,70,140,.22),transparent 60%),linear-gradient(160deg,#05101f 0%,#081a33 55%,#061225 100%);border:1px solid rgba(200,220,255,.08);box-shadow:inset 0 1px 0 rgba(255,255,255,.04),0 30px 80px -30px rgba(0,0,0,.6);opacity:0;animation:hnvIn 1.1s ease .25s forwards}
+      @keyframes hnvIn{to{opacity:1}}
+      .hnv-aura{position:absolute;border-radius:50%;filter:blur(60px);pointer-events:none}
+      .hnv-aura-1{width:340px;height:340px;background:radial-gradient(circle,rgba(90,150,230,.35),transparent 70%);top:-80px;left:-60px;animation:hnvFloat 9s ease-in-out infinite}
+      .hnv-aura-2{width:380px;height:380px;background:radial-gradient(circle,rgba(180,140,220,.22),transparent 70%);bottom:-100px;right:-80px;animation:hnvFloat 11s ease-in-out -3s infinite}
+      @keyframes hnvFloat{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-18px) scale(1.05)}}
+      .hnv-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(200,220,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(200,220,255,.04) 1px,transparent 1px);background-size:44px 44px;mask-image:radial-gradient(ellipse at center,#000 35%,transparent 75%);pointer-events:none}
+      .hnv-ring{position:absolute;top:50%;left:50%;border-radius:50%;border:1px dashed rgba(180,210,255,.12);pointer-events:none}
+      .hnv-ring-1{width:440px;height:440px;transform:translate(-50%,-50%);animation:hnvSpin 40s linear infinite}
+      .hnv-ring-2{width:580px;height:580px;transform:translate(-50%,-50%);border-style:solid;border-color:rgba(180,210,255,.06);animation:hnvSpin 60s linear -20s infinite reverse}
+      @keyframes hnvSpin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+      .hnv-cover{position:relative;z-index:3;width:min(290px,70%);aspect-ratio:3/4;background:linear-gradient(165deg,#f4efe4 0%,#e8dfcc 50%,#d9cdb3 100%);border-radius:6px;padding:1.4rem 1.2rem;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 40px 80px -20px rgba(0,0,0,.55),0 15px 35px -10px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.5);transform:rotate(-3deg);animation:hnvCover 8s ease-in-out infinite;overflow:hidden;font-family:Georgia,serif;color:#1a1410}
+      @keyframes hnvCover{0%,100%{transform:rotate(-3deg) translateY(0)}50%{transform:rotate(-2deg) translateY(-8px)}}
+      .hnv-cover-top{display:flex;justify-content:space-between;align-items:center;font-size:.62rem;letter-spacing:.18em;font-family:'Inter',sans-serif;color:#5a4a38;border-bottom:1px solid rgba(26,20,16,.15);padding-bottom:.6rem}
+      .hnv-brand-mark{width:26px;height:26px;border:1.5px solid #1a1410;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:.9rem;font-family:Georgia,serif}
+      .hnv-cover-core{display:flex;flex-direction:column;gap:.4rem;text-align:center}
+      .hnv-kicker{font-family:'Inter',sans-serif;font-size:.55rem;letter-spacing:.32em;color:#8a6f4a;font-weight:500}
+      .hnv-title{font-size:clamp(2rem,4vw,2.6rem);line-height:1;margin:.2rem 0;font-weight:400;letter-spacing:-.02em}
+      .hnv-title em{color:#a4834a;font-style:normal}
+      .hnv-sub{font-size:.68rem;font-style:italic;color:#3a2f24;letter-spacing:.02em}
+      .hnv-cover-foot{display:flex;justify-content:space-between;align-items:flex-end;border-top:1px solid rgba(26,20,16,.15);padding-top:.6rem}
+      .hnv-foot-num{font-size:1.8rem;line-height:.9;font-weight:500;color:#1a1410}
+      .hnv-foot-num em{color:#a4834a;font-style:normal;font-size:1.2rem}
+      .hnv-foot-lbl{font-family:'Inter',sans-serif;font-size:.58rem;letter-spacing:.18em;color:#5a4a38;text-transform:uppercase;max-width:90px;text-align:right;line-height:1.3}
+      .hnv-cover-shine{position:absolute;inset:0;background:linear-gradient(115deg,transparent 40%,rgba(255,255,255,.25) 50%,transparent 60%);pointer-events:none;animation:hnvShine 6s ease-in-out infinite}
+      @keyframes hnvShine{0%,100%{transform:translateX(-100%)}50%{transform:translateX(100%)}}
+      .hnv-chip{position:absolute;z-index:4;display:flex;align-items:center;gap:.55rem;padding:.55rem .85rem;background:rgba(12,24,44,.85);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(180,210,255,.15);border-radius:100px;font-family:'Inter',sans-serif;font-size:.72rem;color:#e8eef8;box-shadow:0 10px 30px -10px rgba(0,0,0,.5)}
+      .hnv-chip-idx{font-size:.6rem;letter-spacing:.15em;color:#7aa6dc;font-weight:600;padding:2px 6px;background:rgba(122,166,220,.12);border-radius:50px}
+      .hnv-chip-txt{font-weight:400;letter-spacing:.02em}
+      .hnv-chip-ebook{top:14%;left:6%;animation:hnvBob 6s ease-in-out infinite}
+      .hnv-chip-cheat{top:42%;right:4%;animation:hnvBob 7s ease-in-out -2s infinite}
+      .hnv-chip-pack{bottom:15%;left:8%;animation:hnvBob 5.5s ease-in-out -4s infinite}
+      @keyframes hnvBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+      .hnv-live{position:absolute;top:18px;right:18px;z-index:5;display:flex;align-items:center;gap:.5rem;font-family:'Inter',sans-serif;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:#a8c0e0;padding:.4rem .75rem;background:rgba(8,18,34,.6);border:1px solid rgba(180,210,255,.1);border-radius:100px}
+      .hnv-live-dot{width:6px;height:6px;border-radius:50%;background:#6dd49b;box-shadow:0 0 10px #6dd49b;animation:hnvPulse 2s ease-in-out infinite}
+      @keyframes hnvPulse{0%,100%{opacity:1}50%{opacity:.4}}
+      @media(max-width:900px){.hnv-stage{min-height:460px}.hnv-cover{width:min(240px,65%)}.hnv-ring-1{width:360px;height:360px}.hnv-ring-2{width:460px;height:460px}.hnv-chip{font-size:.65rem;padding:.45rem .7rem}}
+    </style>
   </div>
 
   <!-- scroll indicator -->
@@ -3496,66 +3452,150 @@ body::after {
     <div class="bundle-grid">
       <!-- Ultimate Bundle -->
       <div class="bundle-card featured reveal reveal-d2" onclick="openModal('paket2')">
-        <div class="bundle-badge txt-id">&#9733; Pilihan Terbaik</div>
-        <div class="bundle-badge txt-en">&#9733; Best Choice</div>
+        <div class="bundle-choice-badge" aria-label="Best Choice">
+          <svg viewBox="0 0 16 16" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 1.5l2 4.2 4.6.6-3.4 3.2.9 4.6L8 11.9l-4.1 2.2.9-4.6L1.4 6.3 6 5.7z"/></svg>
+          <span class="txt-id">Pilihan Terbaik</span>
+          <span class="txt-en">Best Choice</span>
+        </div>
         <div class="bundle-img-wrap">
-          <div class="uv-wrap">
-            <!-- ambient glows -->
-            <div class="uv-glow uv-glow-1"></div>
-            <div class="uv-glow uv-glow-2"></div>
-            <div class="uv-glow uv-glow-3"></div>
-            <!-- dashed border -->
-            <div class="uv-dashed"></div>
-            <!-- top meta -->
-            <div class="uv-top">
-              <span class="uv-brand">Aurelea · AI Image Generation</span>
-              <span class="uv-byline">3 in 1 · Complete System</span>
-            </div>
-            <!-- center headline -->
-            <div class="uv-center">
-              <div class="uv-hl-top">ULTIMATE</div>
-              <div class="uv-hl-mid"><em>Bundle</em></div>
-              <div class="uv-hl-bot">PACK</div>
-            </div>
-            <!-- 3 product columns -->
-            <div class="uv-products">
-              <div class="uv-prod">
-                <div class="uv-prod-icon uv-book">
-                  <div class="uv-book-spine"></div>
-                  <span>AI<br>Image<br>Gen</span>
-                </div>
-                <div class="uv-prod-num">01</div>
-                <div class="uv-prod-name">E-Book<br>Guide</div>
-                <div class="uv-prod-meta">10 Chapters · PDF</div>
-                <div class="uv-prod-tag">Included</div>
+          <div class="ubn3-shield">
+          <div class="ubn3-frame">
+            <!-- atmospheric layers -->
+            <div class="ubn3-bg"></div>
+            <div class="ubn3-glow ubn3-glow-a"></div>
+            <div class="ubn3-glow ubn3-glow-b"></div>
+            <div class="ubn3-grid"></div>
+
+            <!-- top meta bar -->
+            <div class="ubn3-meta">
+              <div class="ubn3-meta-l">
+                <span class="ubn3-dot"></span>
+                <span class="ubn3-meta-txt">AURELEA · COMPLETE SYSTEM</span>
               </div>
-              <div class="uv-divider"></div>
-              <div class="uv-prod uv-prod-center">
-                <div class="uv-prod-icon uv-grid-icon">
-                  <div class="uv-g"><div class="uv-gc on"></div><div class="uv-gc on"></div><div class="uv-gc on"></div><div class="uv-gc"></div><div class="uv-gc on"></div><div class="uv-gc on"></div><div class="uv-gc on"></div><div class="uv-gc"></div><div class="uv-gc on"></div></div>
-                </div>
-                <div class="uv-prod-num">02</div>
-                <div class="uv-prod-name">400+<br>Prompts</div>
-                <div class="uv-prod-meta">Hyper Realistic · Web</div>
-                <div class="uv-prod-tag">Included</div>
-              </div>
-              <div class="uv-divider"></div>
-              <div class="uv-prod">
-                <div class="uv-prod-icon uv-gear-icon">
-                  <div class="uv-gear-ring"></div>
-                  <span>⚡</span>
-                </div>
-                <div class="uv-prod-num">03</div>
-                <div class="uv-prod-name">Cheat<br>System</div>
-                <div class="uv-prod-meta">Custom GPT · AI</div>
-                <div class="uv-prod-tag">Included</div>
+              <div class="ubn3-meta-r">
+                <span class="ubn3-meta-txt">VOL · MMXXVI</span>
               </div>
             </div>
-            <!-- bottom badge -->
-            <div class="uv-badge-wrap">
-              <div class="uv-badge">3 IN 1 BUNDLE</div>
+
+            <!-- center core -->
+            <div class="ubn3-core">
+              <div class="ubn3-kicker">
+                <span class="ubn3-line-s"></span>
+                <span>THE ULTIMATE BUNDLE</span>
+                <span class="ubn3-line-s"></span>
+              </div>
+              <h4 class="ubn3-title">From zero to<br><em>professional</em></h4>
+              <p class="ubn3-tag">Three essentials · one unified system</p>
             </div>
+
+            <!-- 3 product pills (bottom) -->
+            <div class="ubn3-pills">
+              <div class="ubn3-pill">
+                <div class="ubn3-pill-ico">
+                  <svg viewBox="0 0 20 20" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M3 3h10a2 2 0 012 2v12H5a2 2 0 01-2-2V3z"/><path d="M6 7h6M6 10h6M6 13h4"/></svg>
+                </div>
+                <div class="ubn3-pill-body">
+                  <span class="ubn3-pill-num">01</span>
+                  <span class="ubn3-pill-name">E-Book Guide</span>
+                </div>
+              </div>
+              <div class="ubn3-pill">
+                <div class="ubn3-pill-ico">
+                  <svg viewBox="0 0 20 20" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="3" width="5" height="5"/><rect x="12" y="3" width="5" height="5"/><rect x="3" y="12" width="5" height="5"/><rect x="12" y="12" width="5" height="5"/></svg>
+                </div>
+                <div class="ubn3-pill-body">
+                  <span class="ubn3-pill-num">02</span>
+                  <span class="ubn3-pill-name">400+ Prompts</span>
+                </div>
+              </div>
+              <div class="ubn3-pill">
+                <div class="ubn3-pill-ico">
+                  <svg viewBox="0 0 20 20" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M10 2v3M10 15v3M3.5 3.5l2 2M14.5 14.5l2 2M2 10h3M15 10h3M3.5 16.5l2-2M14.5 5.5l2-2"/><circle cx="10" cy="10" r="2.5"/></svg>
+                </div>
+                <div class="ubn3-pill-body">
+                  <span class="ubn3-pill-num">03</span>
+                  <span class="ubn3-pill-name">Cheat System</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- corner marks -->
+            <span class="ubn3-corner ubn3-c-tl"></span>
+            <span class="ubn3-corner ubn3-c-tr"></span>
+            <span class="ubn3-corner ubn3-c-bl"></span>
+            <span class="ubn3-corner ubn3-c-br"></span>
           </div>
+          </div>
+
+          <style>
+            /* SHIELD — popup-style clean wrapper, nadahin bleed dari card luar */
+            .bundle-card.featured .bundle-img-wrap{
+              padding-bottom:56.25% !important;
+              overflow:hidden !important;
+              background:var(--surface-2,#040D1E) !important;
+              border:0 !important;
+              position:relative !important;
+            }
+            .bundle-card.featured .bundle-img-wrap::before,
+            .bundle-card.featured .bundle-img-wrap::after{
+              content:none !important;display:none !important;background:none !important;height:0 !important;
+            }
+            .ubn3-shield{
+              position:absolute;inset:0;z-index:5;
+              background:linear-gradient(180deg,#081930 0%,#040D1E 100%);
+              border:1px solid rgba(59,189,214,.14);
+              border-radius:12px;
+              overflow:hidden;
+              margin:16px;
+              /* shield reduces by margin so the card edge doesn't touch */
+              width:calc(100% - 32px);
+              height:calc(100% - 32px);
+            }
+            .ubn3-shield .ubn3-frame{
+              position:absolute;inset:0;
+              background:linear-gradient(165deg,#071527 0%,#0C1D38 45%,#0A1A30 100%);
+              border:0;
+              border-radius:11px;
+            }
+
+            .ubn3-frame{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:space-between;padding:clamp(1.8rem,3.8vw,2.6rem) clamp(1.2rem,2.8vw,2rem) clamp(1.9rem,4vw,2.8rem);overflow:hidden;background:linear-gradient(165deg,#071527 0%,#0C1D38 45%,#0A1A30 100%)}
+            .ubn3-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 20% 30%,rgba(59,189,214,.08),transparent 55%),radial-gradient(ellipse at 80% 80%,rgba(59,189,214,.06),transparent 55%);pointer-events:none}
+            .ubn3-glow{position:absolute;border-radius:50%;filter:blur(50px);pointer-events:none}
+            .ubn3-glow-a{width:35%;aspect-ratio:1;background:radial-gradient(circle,rgba(59,189,214,.14),transparent 70%);top:-20%;left:-10%;animation:ubn3Float 9s ease-in-out infinite}
+            .ubn3-glow-b{width:40%;aspect-ratio:1;background:radial-gradient(circle,rgba(94,207,229,.09),transparent 70%);bottom:-25%;right:-15%;animation:ubn3Float 11s ease-in-out -4s infinite}
+            @keyframes ubn3Float{0%,100%{transform:translate(0,0) scale(1);opacity:.8}50%{transform:translate(10px,-10px) scale(1.08);opacity:1}}
+            .ubn3-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(59,189,214,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(59,189,214,.05) 1px,transparent 1px);background-size:40px 40px;mask-image:radial-gradient(ellipse at center,#000 40%,transparent 80%);pointer-events:none}
+            .ubn3-scan{position:absolute;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(59,189,214,.3),transparent);animation:ubn3Scan 6s linear infinite;pointer-events:none}
+            @keyframes ubn3Scan{0%{top:18%;opacity:0}15%{opacity:1}85%{opacity:1}100%{top:82%;opacity:0}}
+
+            .ubn3-meta{position:relative;z-index:2;display:flex;justify-content:space-between;align-items:center;font-family:'Inter',sans-serif;font-size:.58rem;letter-spacing:.22em;color:rgba(214,232,248,.55);font-weight:500}
+            .ubn3-meta-l{display:flex;align-items:center;gap:.5rem}
+            .ubn3-dot{width:5px;height:5px;border-radius:50%;background:#3BBDD6;box-shadow:0 0 8px #3BBDD6;animation:ubn3Pulse 2s ease-in-out infinite}
+            @keyframes ubn3Pulse{0%,100%{opacity:1}50%{opacity:.4}}
+
+            .ubn3-core{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:.55rem;text-align:center;flex:1;justify-content:center;padding:.3rem 0}
+            .ubn3-kicker{display:flex;align-items:center;gap:.7rem;font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.32em;color:#3BBDD6;font-weight:500}
+            .ubn3-line-s{width:clamp(18px,4vw,34px);height:1px;background:linear-gradient(90deg,transparent,rgba(59,189,214,.7),transparent)}
+            .ubn3-title{font-family:Georgia,'Times New Roman',serif;font-size:clamp(1.4rem,3vw,2.1rem);line-height:1.05;margin:0;font-weight:300;color:#D6E8F8;letter-spacing:-.015em}
+            .ubn3-title em{font-style:italic;color:#3BBDD6;font-weight:400}
+            .ubn3-tag{font-family:Georgia,serif;font-style:italic;font-size:clamp(.7rem,1.3vw,.82rem);color:rgba(214,232,248,.6);margin:0;letter-spacing:.02em}
+
+            .ubn3-pills{position:relative;z-index:2;display:flex;justify-content:center;gap:clamp(.4rem,1.2vw,.7rem);flex-wrap:nowrap}
+            .ubn3-pill{display:flex;align-items:center;gap:.5rem;padding:.5rem .7rem;background:rgba(7,21,39,.6);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(59,189,214,.18);border-radius:8px;transition:all .3s ease;min-width:0;flex:0 1 auto}
+            .bundle-card.featured:hover .ubn3-pill{border-color:rgba(59,189,214,.35);background:rgba(7,21,39,.8)}
+            .ubn3-pill-ico{width:26px;height:26px;display:flex;align-items:center;justify-content:center;border-radius:6px;background:rgba(59,189,214,.1);color:#3BBDD6;flex-shrink:0}
+            .ubn3-pill-body{display:flex;flex-direction:column;gap:1px;min-width:0}
+            .ubn3-pill-num{font-family:'Inter',sans-serif;font-size:.52rem;letter-spacing:.2em;color:rgba(59,189,214,.7);font-weight:600}
+            .ubn3-pill-name{font-family:'Inter',sans-serif;font-size:.68rem;color:#D6E8F8;letter-spacing:.02em;font-weight:400;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+            .ubn3-corner{position:absolute;width:14px;height:14px;border:1px solid rgba(59,189,214,.35);pointer-events:none}
+            .ubn3-c-tl{top:10px;left:10px;border-right:none;border-bottom:none}
+            .ubn3-c-tr{top:10px;right:10px;border-left:none;border-bottom:none}
+            .ubn3-c-bl{bottom:10px;left:10px;border-right:none;border-top:none}
+            .ubn3-c-br{bottom:10px;right:10px;border-left:none;border-top:none}
+
+            @media(max-width:640px){.ubn3-frame{padding:1.25rem 1rem 1.35rem}.ubn3-meta{font-size:.52rem}.ubn3-pills{gap:.35rem}.ubn3-pill{padding:.4rem .55rem;gap:.4rem}.ubn3-pill-ico{width:22px;height:22px}.ubn3-pill-name{font-size:.62rem}.ubn3-corner{width:10px;height:10px}}
+          </style>
         </div>
         <div class="bundle-card-body">
           <!-- PROMO COUNTDOWN TIMER -->
@@ -4047,14 +4087,14 @@ function setLang(lang) {
 const links = {
   paket1:     { indo: { url: 'https://lynk.id/promptimagen/paket1',                   avail: false },
                 intl: { url: 'https://promptimagen.gumroad.com/l/paket1',              avail: false } },
-  paket2:     { indo: { url: 'https://lynk.id/promptimagen/xnp48dyqvmw5',             avail: true  },
-                intl: { url: 'https://promptimagen.gumroad.com/l/paket2',              avail: false } },
-  ebook:      { indo: { url: 'https://lynk.id/promptimagen/9d9e53q8k5q6',             avail: true  },
-                intl: { url: 'https://promptimagen.gumroad.com/l/ebook',               avail: false } },
-  cheat:      { indo: { url: 'https://lynk.id/promptimagen/y71gvevkml6l',             avail: true  },
-                intl: { url: 'https://acudious.gumroad.com/l/lrhhpw',                 avail: true  } },
-  promptpack: { indo: { url: 'https://lynk.id/promptimagen/p843pn3jnl6d',             avail: true  },
-                intl: { url: 'https://acudious.gumroad.com/l/promptimagen',            avail: true  } }
+  paket2:     { indo: { url: 'https://lynk.id/promptimagen/xnp48dyqvmw5/checkout?token=cGFyYW1zPSU1QiU1RCZiaWRfcHJpY2U9MCZxdHlfcHJvZD0xJnNlc3NpZD0mdG90YWxfcHJpY2U9JnRvdGFsX3VuaXQ9', avail: true  },
+                intl: { url: 'https://gumroad.com/checkout?_gl=1*hgchf0*_ga*NzM3NzQwMzQzLjE3NzYwMDc0ODY.*_ga_6LJN6D94N6*czE3NzYwMDc0ODYkbzEkZzAkdDE3NzYwMDc0ODYkajYwJGwwJGgw', avail: false } },
+  ebook:      { indo: { url: 'https://lynk.id/promptimagen/9d9e53q8k5q6/checkout?token=cGFyYW1zPSU1QiU1RCZiaWRfcHJpY2U9MCZxdHlfcHJvZD0xJnNlc3NpZD0mdG90YWxfcHJpY2U9JnRvdGFsX3VuaXQ9', avail: true  },
+                intl: { url: 'https://gumroad.com/checkout?_gl=1*hgchf0*_ga*NzM3NzQwMzQzLjE3NzYwMDc0ODY.*_ga_6LJN6D94N6*czE3NzYwMDc0ODYkbzEkZzAkdDE3NzYwMDc0ODYkajYwJGwwJGgw', avail: false } },
+  cheat:      { indo: { url: 'https://lynk.id/promptimagen/y71gvevkml6l/checkout?token=cGFyYW1zPSU1QiU1RCZiaWRfcHJpY2U9MCZxdHlfcHJvZD0xJnNlc3NpZD0mdG90YWxfcHJpY2U9JnRvdGFsX3VuaXQ9', avail: true  },
+                intl: { url: 'https://gumroad.com/checkout?_gl=1*hgchf0*_ga*NzM3NzQwMzQzLjE3NzYwMDc0ODY.*_ga_6LJN6D94N6*czE3NzYwMDc0ODYkbzEkZzAkdDE3NzYwMDc0ODYkajYwJGwwJGgw', avail: true  } },
+  promptpack: { indo: { url: 'https://lynk.id/promptimagen/p843pn3jnl6d/checkout?token=cGFyYW1zPSU1QiU1RCZiaWRfcHJpY2U9MCZxdHlfcHJvZD0xJnNlc3NpZD0mdG90YWxfcHJpY2U9JnRvdGFsX3VuaXQ9', avail: true  },
+                intl: { url: 'https://gumroad.com/checkout?_gl=1*hgchf0*_ga*NzM3NzQwMzQzLjE3NzYwMDc0ODY.*_ga_6LJN6D94N6*czE3NzYwMDc0ODYkbzEkZzAkdDE3NzYwMDc0ODYkajYwJGwwJGgw', avail: true  } }
 };
 const labels = {
   id: {paket1:'Starter Bundle — Rp 90.000', paket2:'Ultimate Bundle — Rp 100.000', ebook:'E-Book Panduan — Rp 75.000', cheat:'Cheat Generator AI — Rp 50.000', promptpack:'Prompt Pack 400+ — Rp 50.000'},
@@ -4167,5 +4207,1194 @@ function openTerms() { document.getElementById('terms-overlay').classList.add('o
   }, 5200);
 })();
 </script>
+<!-- ============================================================
+     AURELEA — DETAIL POPUP MODULE (drop-in, self-contained)
+     Paste this block immediately BEFORE </body>.
+     Requires the existing page (openModal, .txt-id/.txt-en).
+     ============================================================ -->
+<style>
+/* ---------- Description button on cards ---------- */
+.desc-btn{
+  display:inline-flex;align-items:center;gap:.5rem;
+  margin-top:.9rem;padding:.68rem 1rem;
+  font-family:'Jost',sans-serif;font-size:.72rem;font-weight:400;
+  letter-spacing:.22em;text-transform:uppercase;
+  color:var(--cream-dim,#8AAAC8);
+  background:linear-gradient(180deg,rgba(255,255,255,.015),rgba(255,255,255,0));
+  border:1px solid rgba(214,232,248,.14);
+  border-radius:999px;cursor:pointer;
+  transition:color .3s,border-color .3s,background .3s,transform .3s,box-shadow .3s;
+  box-shadow:0 8px 22px rgba(0,0,0,.18);
+}
+.desc-btn:hover{
+  color:var(--ocean,#3BBDD6);
+  border-color:rgba(59,189,214,.5);
+  background:rgba(59,189,214,.07);
+  transform:translateY(-2px);
+  box-shadow:0 12px 28px rgba(59,189,214,.12);
+}
+.desc-btn svg{width:12px;height:12px;opacity:.7}
+.product-card-footer .desc-btn{margin-top:.7rem;width:100%;justify-content:center}
+
+/* ---------- Overlay + modal shell ---------- */
+.detail-overlay{
+  position:fixed;inset:0;z-index:10000;
+  background:rgba(3,8,18,.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  display:none;align-items:flex-start;justify-content:center;
+  padding:clamp(1rem,4vw,3rem);overflow-y:auto;
+  opacity:0;transition:opacity .35s ease;
+}
+.detail-overlay.open{display:flex;opacity:1}
+.detail-modal{
+  position:relative;width:100%;max-width:920px;margin:auto;
+  background:linear-gradient(180deg,#081930 0%,#040D1E 100%);
+  border:1px solid rgba(59,189,214,.14);
+  border-radius:20px;
+  box-shadow:0 60px 180px rgba(0,0,0,.7),0 0 80px rgba(59,189,214,.06),inset 0 1px 0 rgba(59,189,214,.1);
+  transform:translateY(24px) scale(.985);transition:transform .4s ease;
+  overflow:hidden;
+}
+.detail-overlay.open .detail-modal{transform:translateY(0) scale(1)}
+.detail-modal::before{
+  content:'';
+  position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(circle at 15% 0%, rgba(59,189,214,.08), transparent 28%),
+    radial-gradient(circle at 100% 10%, rgba(94,207,229,.06), transparent 25%);
+}
+.detail-modal-inner{
+  position:relative;
+  padding:clamp(1.4rem,3vw,2.6rem);
+  max-height:calc(100vh - 4rem);
+  overflow-y:auto;
+  scrollbar-width:thin
+}
+.detail-modal-inner::-webkit-scrollbar{width:6px}
+.detail-modal-inner::-webkit-scrollbar-thumb{background:rgba(59,189,214,.2);border-radius:3px}
+.detail-modal-close{
+  position:absolute;top:14px;right:14px;z-index:5;
+  width:36px;height:36px;border-radius:50%;
+  background:rgba(4,13,30,.8);border:1px solid rgba(214,232,248,.15);
+  color:var(--cream,#D6E8F8);font-size:1.3rem;line-height:1;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:all .3s;
+}
+.detail-modal-close:hover{
+  border-color:var(--ocean,#3BBDD6);
+  color:var(--ocean,#3BBDD6);
+  transform:rotate(90deg)
+}
+
+/* ---------- Header ---------- */
+.detail-head{margin-bottom:1.8rem;padding-right:2.4rem}
+.detail-eyebrow{
+  font-size:.7rem;letter-spacing:.28em;text-transform:uppercase;
+  color:var(--ocean,#3BBDD6);margin-bottom:.9rem;font-weight:500;
+}
+.detail-title{
+  font-family:'Cormorant Garamond',serif;font-weight:400;
+  font-size:clamp(1.8rem,3.8vw,2.8rem);line-height:1.06;letter-spacing:-.01em;
+  color:var(--cream,#D6E8F8);margin-bottom:.8rem;
+}
+.detail-title em{
+  font-style:italic;
+  color:var(--ocean,#3BBDD6);
+  text-shadow:0 0 18px rgba(59,189,214,.16);
+}
+.detail-lead{color:var(--cream-dim,#8AAAC8);font-size:.98rem;line-height:1.7;max-width:62ch}
+
+/* ---------- Sections ---------- */
+.detail-section{margin:1.8rem 0;padding-top:1.6rem;border-top:1px solid rgba(214,232,248,.06)}
+.detail-section:first-of-type{border-top:0;padding-top:0}
+.detail-section h4{
+  font-family:'Jost',sans-serif;font-size:.72rem;letter-spacing:.26em;
+  text-transform:uppercase;color:var(--ocean,#3BBDD6);font-weight:500;
+  margin-bottom:1rem;
+}
+.detail-section p{color:var(--cream-dim,#8AAAC8);line-height:1.75;margin-bottom:.9rem;font-size:.96rem}
+.detail-section p strong{color:var(--cream,#D6E8F8);font-weight:500}
+
+/* ---------- Feature list ---------- */
+.detail-feature-list{list-style:none;padding:0;margin:0;display:grid;gap:.7rem}
+.detail-feature-list li{
+  display:flex;gap:.8rem;align-items:flex-start;
+  padding:.9rem 1rem;background:rgba(59,189,214,.04);
+  border:1px solid rgba(59,189,214,.08);border-radius:10px;
+  color:var(--cream,#D6E8F8);font-size:.92rem;line-height:1.55;
+}
+.detail-feature-list li::before{
+  content:'';flex:0 0 6px;height:6px;margin-top:.55rem;border-radius:50%;
+  background:var(--ocean,#3BBDD6);box-shadow:0 0 10px rgba(59,189,214,.6);
+}
+
+/* ---------- KPI / stat blocks ---------- */
+.detail-kpi-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(130px,1fr));
+  gap:.8rem;
+  margin:1rem 0
+}
+.detail-kpi{
+  padding:1rem;border-radius:14px;
+  background:linear-gradient(180deg,rgba(59,189,214,.07),rgba(59,189,214,.015));
+  border:1px solid rgba(59,189,214,.12);text-align:center;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.02);
+}
+.detail-kpi .num{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.9rem;color:var(--cream,#D6E8F8);
+  line-height:1;margin-bottom:.35rem;font-weight:500
+}
+.detail-kpi .lbl{
+  font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--cream-dim,#8AAAC8)
+}
+
+/* ---------- Feature bars (ebook) ---------- */
+.detail-bars{display:grid;gap:.7rem;margin:1rem 0}
+.detail-bar{display:flex;align-items:center;gap:1rem;font-size:.85rem}
+.detail-bar .nm{flex:0 0 38%;color:var(--cream,#D6E8F8)}
+.detail-bar .tr{
+  flex:1;height:6px;background:rgba(214,232,248,.06);
+  border-radius:3px;overflow:hidden;position:relative
+}
+.detail-bar .fl{
+  position:absolute;inset:0;width:0;
+  background:linear-gradient(90deg,var(--ocean,#3BBDD6),#5ECFE5);
+  border-radius:3px;transition:width 1.2s cubic-bezier(.2,.8,.2,1)
+}
+.detail-bar .pc{
+  flex:0 0 42px;text-align:right;color:var(--ocean,#3BBDD6);
+  font-variant-numeric:tabular-nums;font-size:.8rem
+}
+
+/* ---------- Flow / steps ---------- */
+.detail-flow{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:.6rem;margin:1rem 0;align-items:stretch
+}
+.detail-flow .step{
+  position:relative;padding:.9rem .7rem;
+  background:linear-gradient(180deg,rgba(59,189,214,.05),transparent);
+  border:1px solid rgba(59,189,214,.1);border-radius:12px;text-align:center;
+}
+.detail-flow .step .n{
+  display:inline-flex;width:22px;height:22px;border-radius:50%;
+  background:var(--ocean,#3BBDD6);color:#040D1E;font-size:.72rem;font-weight:600;
+  align-items:center;justify-content:center;margin-bottom:.5rem;
+  box-shadow:0 0 0 6px rgba(59,189,214,.08);
+}
+.detail-flow .step .t{font-size:.78rem;color:var(--cream,#D6E8F8);line-height:1.3;font-weight:400}
+.detail-flow .step .d{font-size:.7rem;color:var(--cream-dim,#8AAAC8);margin-top:.3rem;line-height:1.4}
+.detail-flow .step:not(:last-child)::after{
+  content:'→';position:absolute;right:-10px;top:50%;transform:translateY(-50%);
+  color:var(--ocean,#3BBDD6);font-size:1rem;z-index:2;
+}
+@media(max-width:600px){
+  .detail-flow{grid-template-columns:1fr 1fr}
+  .detail-flow .step:nth-child(2n)::after,.detail-flow .step:last-child::after{display:none}
+}
+
+/* ---------- Category grid ---------- */
+.detail-cats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:.55rem;margin:1rem 0}
+.detail-cats .c{
+  padding:.75rem .9rem;border:1px solid rgba(214,232,248,.08);border-radius:10px;
+  background:rgba(7,21,39,.5);
+}
+.detail-cats .c .nm{font-size:.82rem;color:var(--cream,#D6E8F8);margin-bottom:.25rem}
+.detail-cats .c .ct{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ocean,#3BBDD6)}
+
+/* ---------- Comparison table ---------- */
+.detail-compare{width:100%;border-collapse:separate;border-spacing:0;margin:1rem 0;font-size:.85rem}
+.detail-compare th,.detail-compare td{
+  padding:.8rem .9rem;text-align:left;border-bottom:1px solid rgba(214,232,248,.06)
+}
+.detail-compare th{
+  font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--cream-dim,#8AAAC8);font-weight:500
+}
+.detail-compare td{color:var(--cream,#D6E8F8)}
+.detail-compare td.bad{color:var(--cream-muted,#4A6888)}
+.detail-compare td.good{color:var(--ocean,#3BBDD6)}
+.detail-compare tr.highlight td{background:rgba(59,189,214,.05)}
+
+/* ---------- Bundle system map (3 layers) ---------- */
+.detail-sysmap{display:grid;gap:.7rem;margin:1rem 0}
+.detail-sysmap .layer{
+  display:flex;align-items:center;gap:1rem;
+  padding:1rem 1.1rem;border-radius:14px;
+  background:linear-gradient(90deg,rgba(59,189,214,.08),rgba(59,189,214,.01));
+  border:1px solid rgba(59,189,214,.14);
+  box-shadow:0 10px 28px rgba(0,0,0,.14);
+}
+.detail-sysmap .layer .idx{
+  flex:0 0 38px;height:38px;border-radius:50%;
+  background:rgba(59,189,214,.15);border:1px solid rgba(59,189,214,.4);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Cormorant Garamond',serif;color:var(--ocean,#3BBDD6);font-size:1.15rem;
+}
+.detail-sysmap .layer .nm{flex:1}
+.detail-sysmap .layer .nm .t{color:var(--cream,#D6E8F8);font-size:.95rem;margin-bottom:.2rem}
+.detail-sysmap .layer .nm .s{font-size:.78rem;color:var(--cream-dim,#8AAAC8);line-height:1.5}
+.detail-sysmap .layer .role{
+  font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ocean,#3BBDD6)
+}
+
+/* ---------- Tabs ---------- */
+.detail-tabs{
+  display:flex;gap:.4rem;padding:.35rem;margin:0 0 1.6rem;
+  background:rgba(4,13,30,.6);
+  border:1px solid rgba(214,232,248,.06);
+  border-radius:999px;width:fit-content
+}
+.detail-tab{
+  padding:.55rem 1.3rem;border:0;background:transparent;cursor:pointer;
+  font-family:'Jost',sans-serif;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--cream-dim,#8AAAC8);border-radius:999px;transition:all .3s;
+}
+.detail-tab.active{
+  background:var(--ocean,#3BBDD6);
+  color:#040D1E;font-weight:500;
+  box-shadow:0 10px 26px rgba(59,189,214,.24);
+}
+.detail-tab-panel{display:none}
+.detail-tab-panel.active{display:block;animation:dFade .4s ease}
+@keyframes dFade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+/* ---------- Benefit grid ---------- */
+.detail-benefit-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:.7rem;margin:1rem 0
+}
+.detail-benefit-card{
+  padding:1rem 1.1rem;border-radius:14px;
+  background:linear-gradient(160deg,rgba(59,189,214,.06),rgba(59,189,214,.01));
+  border:1px solid rgba(59,189,214,.12);
+  display:flex;gap:.8rem;align-items:flex-start;
+  transition:border-color .3s,transform .3s,box-shadow .3s;
+}
+.detail-benefit-card:hover{
+  border-color:rgba(59,189,214,.3);
+  transform:translateY(-2px);
+  box-shadow:0 12px 28px rgba(0,0,0,.16);
+}
+.detail-benefit-card .ic{
+  flex:0 0 28px;height:28px;border-radius:8px;
+  background:rgba(59,189,214,.14);color:var(--ocean,#3BBDD6);
+  display:flex;align-items:center;justify-content:center;font-size:.95rem;
+}
+.detail-benefit-card .tx{color:var(--cream,#D6E8F8);font-size:.88rem;line-height:1.55}
+
+.detail-badges{display:flex;flex-wrap:wrap;gap:.45rem;margin:1.2rem 0}
+.detail-badge{
+  padding:.4rem .8rem;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--ocean,#3BBDD6);background:rgba(59,189,214,.08);
+  border:1px solid rgba(59,189,214,.2);border-radius:999px;
+}
+
+/* ---------- CTA ---------- */
+.detail-cta-wrap{
+  margin-top:2rem;padding-top:1.6rem;border-top:1px solid rgba(214,232,248,.08);
+  display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:space-between
+}
+.detail-cta-wrap .prc{font-family:'Cormorant Garamond',serif;color:var(--cream,#D6E8F8);font-size:1.65rem}
+.detail-cta-wrap .prc small{
+  display:block;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--cream-dim,#8AAAC8);margin-bottom:.2rem;font-family:'Jost',sans-serif
+}
+.detail-cta{
+  padding:.95rem 1.8rem;background:var(--ocean,#3BBDD6);color:#040D1E;
+  border:0;border-radius:999px;font-family:'Jost',sans-serif;font-size:.8rem;
+  letter-spacing:.2em;text-transform:uppercase;font-weight:500;cursor:pointer;
+  transition:all .3s;box-shadow:0 10px 30px rgba(59,189,214,.25);
+}
+.detail-cta:hover{
+  background:#5ECFE5;
+  transform:translateY(-2px);
+  box-shadow:0 15px 40px rgba(59,189,214,.4)
+}
+
+/* ---------- Ultimate Bundle popup premium hero ---------- */
+.detail-bundle-hero{
+  position:relative;
+  padding:1.25rem 1.2rem 1.15rem;
+  border-radius:18px;
+  overflow:hidden;
+  border:1px solid rgba(59,189,214,.16);
+  background:
+    radial-gradient(circle at top left, rgba(94,207,229,.12), transparent 28%),
+    linear-gradient(180deg, rgba(11,34,66,.88), rgba(6,18,39,.78));
+  box-shadow:0 24px 70px rgba(0,0,0,.22), inset 0 1px 0 rgba(255,255,255,.04);
+}
+.detail-bundle-hero::before{
+  content:'';
+  position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(120deg, transparent 20%, rgba(255,255,255,.03) 50%, transparent 80%);
+}
+.detail-stack-ribbon{
+  display:inline-flex;align-items:center;gap:.45rem;
+  margin-bottom:1rem;padding:.48rem .85rem;
+  border-radius:999px;
+  background:rgba(59,189,214,.12);
+  border:1px solid rgba(59,189,214,.2);
+  color:var(--ocean,#3BBDD6);
+  font-size:.65rem;letter-spacing:.22em;text-transform:uppercase;
+}
+.detail-bundle-topline{
+  display:flex;gap:1rem;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;
+}
+.detail-bundle-copy{
+  flex:1;min-width:240px;
+}
+.detail-bundle-copy h5{
+  margin:0 0 .45rem;
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.6rem;font-weight:500;line-height:1;
+  color:var(--cream,#D6E8F8);
+}
+.detail-bundle-copy p{
+  margin:0;
+  color:var(--cream-dim,#8AAAC8);
+  font-size:.92rem;
+  line-height:1.7;
+}
+.detail-bundle-save{
+  align-self:flex-start;
+  padding:.65rem .95rem;
+  border-radius:14px;
+  background:linear-gradient(135deg,var(--ocean,#3BBDD6),#5ECFE5);
+  color:#04101f;
+  font-weight:600;
+  font-size:.72rem;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  box-shadow:0 16px 34px rgba(59,189,214,.22);
+}
+.detail-bundle-price-row{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:.75rem;
+  margin:1rem 0 0;
+}
+.detail-bundle-price-card{
+  padding:.95rem 1rem;
+  border-radius:14px;
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(214,232,248,.08);
+}
+.detail-bundle-price-card .k{
+  display:block;
+  margin-bottom:.4rem;
+  font-size:.62rem;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:var(--cream-dim,#8AAAC8);
+}
+.detail-bundle-price-card strong{
+  display:block;
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.55rem;
+  line-height:1;
+  color:var(--cream,#D6E8F8);
+}
+.detail-bundle-price-card small{
+  display:block;
+  margin-top:.4rem;
+  font-size:.76rem;
+  line-height:1.45;
+  color:var(--cream-dim,#8AAAC8);
+}
+.detail-bundle-points{
+  list-style:none;
+  padding:0;
+  margin:1rem 0 0;
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:.55rem;
+}
+.detail-bundle-points li{
+  position:relative;
+  padding:.78rem .9rem .78rem 2rem;
+  border-radius:12px;
+  background:rgba(59,189,214,.045);
+  border:1px solid rgba(59,189,214,.08);
+  color:var(--cream,#D6E8F8);
+  font-size:.86rem;
+  line-height:1.45;
+}
+.detail-bundle-points li::before{
+  content:'✦';
+  position:absolute;left:.85rem;top:.72rem;
+  color:var(--ocean,#3BBDD6);
+  font-size:.8rem;
+}
+.detail-mini-compare{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:.8rem;
+  margin:1rem 0;
+}
+.detail-mini-compare .box{
+  padding:1rem 1rem .95rem;
+  border-radius:15px;
+  border:1px solid rgba(214,232,248,.08);
+  background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,0));
+}
+.detail-mini-compare .box.best{
+  border-color:rgba(59,189,214,.25);
+  background:linear-gradient(180deg,rgba(59,189,214,.08),rgba(59,189,214,.015));
+  box-shadow:0 18px 40px rgba(59,189,214,.08);
+}
+.detail-mini-compare .ey{
+  display:block;
+  font-size:.62rem;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--cream-dim,#8AAAC8);
+  margin-bottom:.45rem;
+}
+.detail-mini-compare .ttl{
+  display:block;
+  font-size:1rem;
+  color:var(--cream,#D6E8F8);
+  margin-bottom:.4rem;
+}
+.detail-mini-compare .sub{
+  display:block;
+  color:var(--cream-dim,#8AAAC8);
+  font-size:.82rem;
+  line-height:1.55;
+}
+.detail-mini-compare .pr{
+  display:block;
+  margin-top:.75rem;
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.45rem;
+  color:var(--cream,#D6E8F8);
+}
+.detail-mini-compare .best .pr{color:var(--ocean,#3BBDD6)}
+
+/* ---------- Bundle card premium redesign ---------- */
+.bundle-card.featured{
+  position:relative;
+  background:linear-gradient(180deg,#0A1E3D 0%,#061530 55%,#040D1E 100%) !important;
+  border:1px solid rgba(59,189,214,.22) !important;
+  border-radius:20px !important;
+  box-shadow:
+    0 40px 120px rgba(0,0,0,.55),
+    0 0 0 1px rgba(59,189,214,.08),
+    0 0 22px rgba(59,189,214,.14),
+    0 2px 0 rgba(255,255,255,.02) inset !important;
+  overflow:visible !important;
+  overflow-x:visible !important;
+  overflow-y:visible !important;
+  padding-top:clamp(1.2rem,2.4vw,1.8rem) !important;
+  transition:transform .5s ease, border-color .5s ease, box-shadow .5s ease !important;
+  animation:featuredNeonPulse 4.5s ease-in-out infinite;
+}
+@keyframes featuredNeonPulse{
+  0%,100%{
+    box-shadow:
+      0 40px 120px rgba(0,0,0,.55),
+      0 0 0 1px rgba(59,189,214,.08),
+      0 0 22px rgba(59,189,214,.14),
+      0 2px 0 rgba(255,255,255,.02) inset;
+  }
+  50%{
+    box-shadow:
+      0 40px 120px rgba(0,0,0,.55),
+      0 0 0 1px rgba(59,189,214,.14),
+      0 0 32px rgba(59,189,214,.22),
+      0 2px 0 rgba(255,255,255,.02) inset;
+  }
+}
+.bundle-card.featured:hover{
+  transform:translateY(-4px) !important;
+  border-color:rgba(59,189,214,.38) !important;
+  animation:none;
+  box-shadow:
+    0 50px 140px rgba(0,0,0,.6),
+    0 0 0 1px rgba(59,189,214,.2),
+    0 0 40px rgba(59,189,214,.28),
+    0 2px 0 rgba(255,255,255,.03) inset !important;
+}
+.bundle-card.featured .bundle-img-wrap,
+.bundle-card.featured .bundle-card-body{
+  position:relative;z-index:1;
+}
+/* subtle editorial corner marks on outer card */
+.bundle-card.featured::before,
+.bundle-card.featured::after{
+  content:'' !important;
+  display:block !important;
+  position:absolute;
+  width:18px;height:18px;
+  border:1px solid rgba(59,189,214,.22);
+  pointer-events:none;
+  z-index:2;
+  background:none !important;
+}
+.bundle-card.featured::before{top:10px;left:10px;border-right:0;border-bottom:0;border-top-left-radius:6px}
+.bundle-card.featured::after{bottom:10px;right:10px;border-left:0;border-top:0;border-bottom-right-radius:6px}
+
+/* ===== Floating "Pilihan Terbaik" badge ===== */
+.bundle-choice-badge{
+  position:absolute;
+  top:-14px;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:10;
+  display:inline-flex;
+  align-items:center;
+  gap:.45rem;
+  padding:.5rem 1.1rem;
+  background:linear-gradient(135deg,#3BBDD6 0%,#5ECFE5 100%);
+  color:#04121F;
+  border-radius:999px;
+  font-family:'Inter',sans-serif;
+  font-size:.62rem;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  font-weight:600;
+  white-space:nowrap;
+  box-shadow:
+    0 6px 18px rgba(0,0,0,.4),
+    0 0 18px rgba(59,189,214,.35),
+    0 0 0 1px rgba(255,255,255,.12) inset,
+    0 1px 0 rgba(255,255,255,.25) inset;
+}
+.bundle-choice-badge svg{flex-shrink:0;fill:#04121F;stroke:#04121F}
+.bundle-choice-badge .txt-id,
+.bundle-choice-badge .txt-en{display:inline}
+[data-lang="id"] .bundle-choice-badge .txt-en,
+[data-lang="en"] .bundle-choice-badge .txt-id{display:none}
+
+@media(max-width:640px){
+  .bundle-choice-badge{font-size:.55rem;padding:.42rem .85rem;top:-12px}
+  .bundle-card.featured{padding-top:1rem !important;border-radius:16px !important}
+}
+/* legacy pseudo-kill removed — corner marks defined above take over */
+/* force-clip every descendant, kill scrollbars */
+.bundle-card.featured,
+.bundle-card.featured *{
+  scrollbar-width:none !important;
+  -ms-overflow-style:none !important;
+}
+.bundle-card.featured::-webkit-scrollbar,
+.bundle-card.featured *::-webkit-scrollbar{
+  display:none !important;
+  width:0 !important;
+  height:0 !important;
+}
+.bundle-card.featured .bundle-card-body{
+  overflow:hidden !important;
+  max-width:100% !important;
+}
+@keyframes bndSpot{0%{transform:translate(0,0)}100%{transform:translate(5%,3%)}}
+.bundle-card.featured > *{position:relative;z-index:1}
+.bundle-card.featured:hover{
+  border-color:rgba(59,189,214,.22) !important;
+  box-shadow:0 50px 140px rgba(0,0,0,.6) !important;
+}
+.bundle-flag{
+  position:absolute;top:18px;right:18px;z-index:3;
+  padding:.45rem .9rem;
+  background:linear-gradient(135deg,var(--ocean,#3BBDD6),#5ECFE5);
+  color:#040D1E;border-radius:999px;
+  font-size:.62rem;letter-spacing:.25em;text-transform:uppercase;font-weight:600;
+  box-shadow:0 4px 12px rgba(0,0,0,.35);
+}
+.bundle-shimmer{
+  position:absolute;top:0;left:-100%;width:60%;height:100%;z-index:2;pointer-events:none;
+  background:linear-gradient(90deg,transparent,rgba(94,207,229,.09),transparent);
+  animation:bndShm 6s ease-in-out infinite;
+}
+@keyframes bndShm{0%,60%{left:-100%}80%,100%{left:160%}}
+
+.bundle-premium-meta{
+  display:flex;flex-wrap:wrap;gap:.45rem;
+  margin-top:1rem;
+}
+.bundle-premium-pill{
+  display:inline-flex;align-items:center;
+  padding:.42rem .72rem;
+  border-radius:999px;
+  border:1px solid rgba(59,189,214,.15);
+  background:rgba(59,189,214,.06);
+  color:var(--ocean,#3BBDD6);
+  font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;
+}
+
+/* ---------- Responsive ---------- */
+@media(max-width:760px){
+  .detail-bundle-price-row,
+  .detail-bundle-points,
+  .detail-mini-compare{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  .detail-modal{border-radius:14px}
+  .detail-modal-inner{padding:1.2rem;max-height:calc(100vh - 2rem)}
+  .detail-cta-wrap{flex-direction:column;align-items:stretch}
+  .detail-cta{width:100%;text-align:center}
+  .detail-compare{font-size:.78rem}
+  .detail-compare th,.detail-compare td{padding:.55rem .5rem}
+}
+body.detail-lock{overflow:hidden}
+</style>
+
+<div class="detail-overlay" id="detailOverlay" aria-hidden="true">
+  <div class="detail-modal" role="dialog" aria-modal="true">
+    <button class="detail-modal-close" aria-label="Close" onclick="closeDetail()">×</button>
+    <div class="detail-modal-inner" id="detailInner"></div>
+  </div>
+</div>
+
+<script>
+(function(){
+  const D = {
+    ebook:{
+      modal:'ebook',
+      eyebrow:{id:'E-Book Panduan',en:'E-Book Guide'},
+      title:{id:'Menguasai AI Image<br>dari <em>akarnya</em>',en:'Master AI Image<br>from the <em>ground up</em>'},
+      lead:{
+        id:'Bukan kumpulan tips. Ini kerangka berpikir — 10 bab yang membangun pemahaman nyata tentang AI image generation, dari fondasi prompt sampai kontrol penuh atas gaya, pencahayaan, dan komposisi. Setelah baca ini, kamu berhenti menebak dan mulai mengontrol.',
+        en:'Not a collection of tips. A thinking framework — 10 chapters that build real understanding of AI image generation, from prompt foundations to full control over style, lighting, and composition. After this, you stop guessing and start controlling.'
+      },
+      price:{id:'Rp 75.000',en:'$8.99'},
+      cta:{id:'Ambil Produk Ini',en:'Get This Product'},
+      body:(L)=>`
+        <div class="detail-section">
+          <h4>${L.id?'Untuk Siapa':'Who It’s For'}</h4>
+          <p>${L.id?'Content creator, freelancer AI, dan pemula yang udah coba generate ratusan gambar tapi masih merasa seperti berjudi tiap kali pencet tombol. Kalau kamu udah hafal banyak keyword tapi hasilnya masih untung-untungan — buku ini adalah titik balik.':'Content creators, AI freelancers, and beginners who have already generated hundreds of images but still feel like they are gambling every time they hit generate. If you know a lot of keywords but results still feel random — this is the turning point.'}</p>
+        </div>
+        <div class="detail-section">
+          <h4>${L.id?'4 Tahap Transformasi':'4-Stage Transformation'}</h4>
+          <div class="detail-flow">
+            <div class="step"><span class="n">1</span><div class="t">${L.id?'Dasar':'Foundations'}</div><div class="d">${L.id?'Cara kerja diffusion, noise, seed':'How diffusion, noise, seed work'}</div></div>
+            <div class="step"><span class="n">2</span><div class="t">${L.id?'Struktur':'Structure'}</div><div class="d">${L.id?'Formula Subject + Style + Lighting':'Subject + Style + Lighting formula'}</div></div>
+            <div class="step"><span class="n">3</span><div class="t">${L.id?'Kontrol':'Control'}</div><div class="d">${L.id?'Gaya, pencahayaan, komposisi':'Style, lighting, composition'}</div></div>
+            <div class="step"><span class="n">4</span><div class="t">${L.id?'Konsistensi':'Consistency'}</div><div class="d">${L.id?'Prompt reusable & karakter stabil':'Reusable prompts & stable characters'}</div></div>
+          </div>
+        </div>
+        <div class="detail-section">
+          <h4>${L.id?'Area yang Kamu Kuasai':'Areas You Will Master'}</h4>
+          <div class="detail-bars" data-animate>
+            <div class="detail-bar"><span class="nm">${L.id?'Dasar Prompt':'Prompt Basics'}</span><span class="tr"><span class="fl" data-w="92"></span></span><span class="pc">92%</span></div>
+            <div class="detail-bar"><span class="nm">${L.id?'Kontrol Gaya':'Style Control'}</span><span class="tr"><span class="fl" data-w="88"></span></span><span class="pc">88%</span></div>
+            <div class="detail-bar"><span class="nm">${L.id?'Pencahayaan':'Lighting'}</span><span class="tr"><span class="fl" data-w="85"></span></span><span class="pc">85%</span></div>
+            <div class="detail-bar"><span class="nm">${L.id?'Komposisi':'Composition'}</span><span class="tr"><span class="fl" data-w="82"></span></span><span class="pc">82%</span></div>
+            <div class="detail-bar"><span class="nm">${L.id?'Negative Prompt':'Negative Prompt'}</span><span class="tr"><span class="fl" data-w="78"></span></span><span class="pc">78%</span></div>
+          </div>
+        </div>
+        <div class="detail-section">
+          <h4>${L.id?'Dari Menebak → Mengontrol':'From Guessing → Controlling'}</h4>
+          <table class="detail-compare">
+            <tr><th>${L.id?'Sebelum':'Before'}</th><th>${L.id?'Sesudah':'After'}</th></tr>
+            <tr><td class="bad">${L.id?'Hasil random tiap generate':'Random results each time'}</td><td class="good">${L.id?'Output bisa diarahkan':'Output can be directed'}</td></tr>
+            <tr><td class="bad">${L.id?'Hafal keyword tanpa paham':'Memorize keywords blindly'}</td><td class="good">${L.id?'Paham kenapa suatu prompt bekerja':'Understand why a prompt works'}</td></tr>
+            <tr><td class="bad">${L.id?'Bergantung pada template orang lain':'Depend on other people’s templates'}</td><td class="good">${L.id?'Bikin struktur prompt sendiri':'Build your own prompt structure'}</td></tr>
+          </table>
+        </div>
+        <div class="detail-kpi-grid">
+          <div class="detail-kpi"><div class="num">10</div><div class="lbl">${L.id?'Bab':'Chapters'}</div></div>
+          <div class="detail-kpi"><div class="num">150+</div><div class="lbl">${L.id?'Halaman':'Pages'}</div></div>
+          <div class="detail-kpi"><div class="num">5</div><div class="lbl">${L.id?'Bagian':'Parts'}</div></div>
+        </div>`
+    },
+
+    cheat:{
+      modal:'cheat',
+      eyebrow:{id:'Sistem Generator Prompt',en:'Prompt Generator System'},
+      title:{id:'Prompt kustom<br>dalam <em>hitungan detik</em>',en:'Custom prompts<br>in <em>seconds</em>'},
+      lead:{
+        id:'Bukan tools. Ini metodologi. Kamu melatih AI kamu sendiri (ChatGPT/Claude/Gemini) pakai file TXT yang udah dirancang khusus — setelah itu cukup kasih foto referensi atau ceritakan imajinasi, AI yang menerjemahkannya jadi prompt terstruktur. Cepat, rapi, tanpa formula yang harus dihafal.',
+        en:'Not a tool. A methodology. You train your own AI (ChatGPT/Claude/Gemini) using a specially engineered TXT file — then just give it a visual reference or describe your imagination, and the AI turns it into a structured prompt. Fast, clean, no formulas to memorize.'
+      },
+      price:{id:'Rp 50.000',en:'$6.50'},
+      cta:{id:'Ambil Produk Ini',en:'Get This Product'},
+      body:(L)=>`
+        <div class="detail-section">
+          <h4>${L.id?'Alur Kerja':'Workflow'}</h4>
+          <div class="detail-flow">
+            <div class="step"><span class="n">1</span><div class="t">${L.id?'Input':'Input'}</div><div class="d">${L.id?'Foto referensi / deskripsi':'Reference / description'}</div></div>
+            <div class="step"><span class="n">2</span><div class="t">${L.id?'Proses':'Process'}</div><div class="d">${L.id?'AI terlatih baca pola':'Trained AI reads patterns'}</div></div>
+            <div class="step"><span class="n">3</span><div class="t">${L.id?'Struktur':'Structure'}</div><div class="d">${L.id?'Dirapikan jadi prompt':'Shaped into a prompt'}</div></div>
+            <div class="step"><span class="n">4</span><div class="t">${L.id?'Output':'Output'}</div><div class="d">${L.id?'Prompt siap pakai':'Ready-to-use prompt'}</div></div>
+          </div>
+        </div>
+        <div class="detail-section">
+          <h4>${L.id?'Kenapa Ini Cocok':'Why It Fits'}</h4>
+          <p>${L.id?'Buat kamu yang butuh prompt kustom tanpa friksi teknis. Tidak perlu hafal formula Subject+Style+Lighting+Camera — sistemnya yang menyusun. Kamu fokus di idenya, AI yang bikin strukturnya.':'For creators who need custom prompts without technical friction. No need to memorize the Subject+Style+Lighting+Camera formula — the system builds it. You focus on the idea, the AI handles the structure.'}</p>
+        </div>
+        <div class="detail-section">
+          <h4>${L.id?'Nilai Utama':'Core Value'}</h4>
+          <div class="detail-bars" data-animate>
+            <div class="detail-bar"><span class="nm">${L.id?'Kecepatan':'Speed'}</span><span class="tr"><span class="fl" data-w="95"></span></span><span class="pc">95%</span></div>
+            <div class="detail-bar"><span class="nm">${L.id?'Struktur':'Structure'}</span><span class="tr"><span class="fl" data-w="90"></span></span><span class="pc">90%</span></div>
+            <div class="detail-bar"><span class="nm">${L.id?'Fleksibilitas':'Flexibility'}</span><span class="tr"><span class="fl" data-w="88"></span></span><span class="pc">88%</span></div>
+            <div class="detail-bar"><span class="nm">${L.id?'Kejernihan':'Clarity'}</span><span class="tr"><span class="fl" data-w="86"></span></span><span class="pc">86%</span></div>
+          </div>
+        </div>
+        <div class="detail-section">
+          <h4>${L.id?'Generator Konvensional vs Sistem Ini':'Conventional Generator vs This System'}</h4>
+          <table class="detail-compare">
+            <tr><th>${L.id?'Aspek':'Aspect'}</th><th>${L.id?'Konvensional':'Conventional'}</th><th>${L.id?'Sistem Aurelea':'Aurelea System'}</th></tr>
+            <tr><td>${L.id?'Cara kerja':'Method'}</td><td class="bad">${L.id?'Template pre-set':'Pre-set templates'}</td><td class="good">${L.id?'Pattern recognition':'Pattern recognition'}</td></tr>
+            <tr><td>${L.id?'Dari foto':'From photo'}</td><td class="bad">—</td><td class="good">${L.id?'Bisa':'Yes'}</td></tr>
+            <tr><td>${L.id?'Dari imajinasi':'From imagination'}</td><td class="bad">${L.id?'Terbatas':'Limited'}</td><td class="good">${L.id?'Unlimited':'Unlimited'}</td></tr>
+            <tr><td>${L.id?'Biaya':'Cost'}</td><td class="bad">${L.id?'Subscription':'Subscription'}</td><td class="good">${L.id?'Sekali beli':'One-time'}</td></tr>
+          </table>
+        </div>
+        <div class="detail-kpi-grid">
+          <div class="detail-kpi"><div class="num">∞</div><div class="lbl">${L.id?'Iterasi':'Iterations'}</div></div>
+          <div class="detail-kpi"><div class="num">0</div><div class="lbl">${L.id?'Biaya API':'API Cost'}</div></div>
+          <div class="detail-kpi"><div class="num">1x</div><div class="lbl">${L.id?'Setup':'Setup'}</div></div>
+        </div>`
+    },
+
+    promptpack:{
+      modal:'promptpack',
+      eyebrow:{id:'Koleksi Prompt Premium',en:'Premium Prompt Collection'},
+      title:{id:'400+ prompt yang<br>langsung <em>bekerja</em>',en:'400+ prompts that<br><em>work</em> immediately'},
+      lead:{
+        id:'Bukan dump prompt acak. Ini koleksi yang dikurasi dan diuji langsung oleh Tim Aurelea — fokus di foto hyper-realistic yang konsisten di Flow, Gemini, Midjourney, dan tools lainnya. Buka, copy, paste, generate. Segitu aja.',
+        en:'Not a random dump. A curated, hands-on-tested collection by the Aurelea Team — focused on hyper-realistic photos that stay consistent across Flow, Gemini, Midjourney, and other tools. Open, copy, paste, generate. That simple.'
+      },
+      price:{id:'Rp 50.000',en:'$6.50'},
+      cta:{id:'Ambil Produk Ini',en:'Get This Product'},
+      body:(L)=>`
+        <div class="detail-section">
+          <h4>${L.id?'Kurasi vs Dump Acak':'Curated vs Random Dump'}</h4>
+          <p>${L.id?'Banyak pack di luar sana cuma kumpulan prompt tanpa filter — separuhnya tidak pernah diuji. Koleksi ini dibalik: setiap prompt diuji dulu, yang tidak konsisten tidak masuk. Yang tersisa adalah 400+ prompt yang benar-benar bekerja di berbagai platform.':'Many packs out there are unfiltered dumps — half never tested. This one flips it: every prompt is tested first, inconsistent ones are cut. What remains is 400+ prompts that actually work across platforms.'}</p>
+        </div>
+        <div class="detail-section">
+          <h4>${L.id?'Kategori Gaya':'Style Categories'}</h4>
+          <div class="detail-cats">
+            <div class="c"><div class="nm">${L.id?'Mirror Selfie':'Mirror Selfie'}</div><div class="ct">${L.id?'Estetika modern':'Modern aesthetic'}</div></div>
+            <div class="c"><div class="nm">${L.id?'Couple':'Couple'}</div><div class="ct">${L.id?'Romantis & lifestyle':'Romantic & lifestyle'}</div></div>
+            <div class="c"><div class="nm">Cinematic</div><div class="ct">${L.id?'Dramatis film-like':'Film-like drama'}</div></div>
+            <div class="c"><div class="nm">Luxury</div><div class="ct">${L.id?'Mewah, elegan':'Elegant, high-end'}</div></div>
+            <div class="c"><div class="nm">Golden Hour</div><div class="ct">${L.id?'Cahaya senja':'Sunset light'}</div></div>
+            <div class="c"><div class="nm">Moody Night</div><div class="ct">${L.id?'Atmospheric':'Atmospheric'}</div></div>
+            <div class="c"><div class="nm">Fashion Editorial</div><div class="ct">${L.id?'Magazine style':'Magazine style'}</div></div>
+            <div class="c"><div class="nm">Urban Street</div><div class="ct">${L.id?'Jalanan autentik':'Authentic street'}</div></div>
+          </div>
+        </div>
+        <div class="detail-section">
+          <h4>${L.id?'Cocok Untuk':'Works For'}</h4>
+          <ul class="detail-feature-list">
+            <li>${L.id?'Content creator yang butuh output konsisten setiap hari':'Content creators who need consistent daily output'}</li>
+            <li>${L.id?'Personal brand yang mau visual premium tanpa sesi foto':'Personal brands wanting premium visuals without photoshoots'}</li>
+            <li>${L.id?'Freelancer yang kerjain project klien dengan deadline ketat':'Freelancers handling client projects with tight deadlines'}</li>
+            <li>${L.id?'Eksperimen visual — langsung tancap gas tanpa mikir dari nol':'Visual experimentation — full speed without starting from scratch'}</li>
+          </ul>
+        </div>
+        <div class="detail-kpi-grid">
+          <div class="detail-kpi"><div class="num">400+</div><div class="lbl">${L.id?'Prompt':'Prompts'}</div></div>
+          <div class="detail-kpi"><div class="num">8</div><div class="lbl">${L.id?'Gaya':'Styles'}</div></div>
+          <div class="detail-kpi"><div class="num">100%</div><div class="lbl">${L.id?'Diuji':'Tested'}</div></div>
+        </div>`
+    },
+
+    paket2:{
+      modal:'paket2',
+      eyebrow:{id:'Ultimate Bundle',en:'Ultimate Bundle'},
+      title:{id:'Sistem <em>lengkap</em><br>yang bekerja dari hari pertama',en:'A <em>complete</em> system<br>that works from day one'},
+      lead:{
+        id:'Bukan bundle acak. Ini sistem utuh: belajar → bikin → eksekusi. E-Book buat paham, Cheat Generator buat bikin, Prompt Pack 400+ buat langsung eksekusi. Ketiganya dirancang saling menyambung — bukan dijual terpisah lalu digabung.',
+        en:'Not a random bundle. A complete system: learn → build → execute. The E-Book for understanding, the Cheat Generator for creation, the 400+ Prompt Pack for instant execution. All three are designed to interlock — not separate products glued together.'
+      },
+      price:{id:'Rp 100.000',en:'$14.99'},
+      cta:{id:'Ambil Bundle Ini',en:'Get This Bundle'},
+      tabs:true,
+      body:(L)=>{
+        const bundlePrice = L.id ? 'Rp 100.000' : '$14.99';
+        const separatePrice = L.id ? 'Rp 175.000' : '$21.99';
+        const savings = L.id ? 'Rp 75.000' : '$7.00';
+        const savingsPct = L.id ? '43%' : '32%';
+
+        return `
+        <div class="detail-bundle-hero">
+          <div class="detail-stack-ribbon">${L.id?'Flagship Stack':'Flagship Stack'}</div>
+
+          <div class="detail-bundle-topline">
+            <div class="detail-bundle-copy">
+              <h5>${L.id?'Semua yang kamu butuhkan, dalam satu alur':'Everything you need, in one flow'}</h5>
+              <p>${L.id?'Bukan cuma lebih murah — bundle ini lebih kuat karena tiap produk ngisi peran yang berbeda: satu ngajarin fondasi, satu bantu bikin prompt, satu lagi kasih library siap pakai buat eksekusi cepat.':'Not just cheaper — this bundle is stronger because each product serves a distinct role: one teaches the foundation, one helps generate prompts, and one gives you a ready-to-use library for fast execution.'}</p>
+            </div>
+            <div class="detail-bundle-save">${L.id?'Hemat':'Save'} ${savings}</div>
+          </div>
+
+          <div class="detail-bundle-price-row">
+            <div class="detail-bundle-price-card">
+              <span class="k">${L.id?'Harga Bundle':'Bundle Price'}</span>
+              <strong>${bundlePrice}</strong>
+              <small>${L.id?'Sekali bayar • akses instan':'One-time payment • instant access'}</small>
+            </div>
+            <div class="detail-bundle-price-card">
+              <span class="k">${L.id?'Nilai Terpisah':'Separate Value'}</span>
+              <strong>${separatePrice}</strong>
+              <small>${L.id?'Kalau semua dibeli satuan':'If all products are purchased separately'}</small>
+            </div>
+            <div class="detail-bundle-price-card">
+              <span class="k">${L.id?'Penghematan':'Savings'}</span>
+              <strong>${savingsPct}</strong>
+              <small>${L.id?'Lebih efisien dari beli satu-satu':'More efficient than buying them one by one'}</small>
+            </div>
+          </div>
+
+          <ul class="detail-bundle-points">
+            <li>${L.id?'Belajar dasar prompt tanpa trial-error yang muter-muter':'Learn prompt fundamentals without messy trial-and-error loops'}</li>
+            <li>${L.id?'Ubah ide atau foto jadi prompt custom lebih cepat':'Turn ideas or reference photos into custom prompts faster'}</li>
+            <li>${L.id?'Eksekusi instan pakai 400+ prompt yang sudah siap':'Execute instantly with 400+ ready-to-use prompts'}</li>
+            <li>${L.id?'Workflow jauh lebih rapi buat personal brand atau kerja klien':'A cleaner workflow for personal branding or client work'}</li>
+          </ul>
+        </div>
+
+        <div class="detail-tabs" role="tablist">
+          <button class="detail-tab active" data-tab="desc">${L.id?'Deskripsi':'Description'}</button>
+          <button class="detail-tab" data-tab="ben">${L.id?'Benefit':'Benefits'}</button>
+        </div>
+
+        <div class="detail-tab-panel active" data-panel="desc">
+          <div class="detail-section">
+            <h4>${L.id?'Arsitektur Sistem':'System Architecture'}</h4>
+            <div class="detail-sysmap">
+              <div class="layer">
+                <div class="idx">1</div>
+                <div class="nm">
+                  <div class="t">${L.id?'E-Book Panduan':'E-Book Guide'}</div>
+                  <div class="s">${L.id?'Bangun kerangka berpikir. Paham cara AI bekerja, bukan sekadar hafal keyword.':'Build the mental framework. Understand how AI works, not just memorize keywords.'}</div>
+                </div>
+                <div class="role">${L.id?'Belajar':'Learn'}</div>
+              </div>
+              <div class="layer">
+                <div class="idx">2</div>
+                <div class="nm">
+                  <div class="t">${L.id?'Cheat Prompt Generator':'Cheat Prompt Generator'}</div>
+                  <div class="s">${L.id?'Ubah ide atau foto jadi prompt terstruktur otomatis. Tanpa friksi teknis.':'Turn ideas or photos into structured prompts automatically. Zero friction.'}</div>
+                </div>
+                <div class="role">${L.id?'Bikin':'Build'}</div>
+              </div>
+              <div class="layer">
+                <div class="idx">3</div>
+                <div class="nm">
+                  <div class="t">${L.id?'Prompt Pack 400+':'400+ Prompt Pack'}</div>
+                  <div class="s">${L.id?'Library siap pakai buat eksekusi cepat di berbagai gaya dan kebutuhan.':'A ready library for fast execution across styles and needs.'}</div>
+                </div>
+                <div class="role">${L.id?'Eksekusi':'Execute'}</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="detail-section">
+            <h4>${L.id?'Kenapa Bundle Ini Lebih Nendang':'Why This Bundle Hits Harder'}</h4>
+            <div class="detail-mini-compare">
+              <div class="box">
+                <span class="ey">${L.id?'Beli Terpisah':'Separate Purchase'}</span>
+                <span class="ttl">${L.id?'Dapat produknya, tapi alurnya harus kamu susun sendiri':'You get the products, but you assemble the workflow yourself'}</span>
+                <span class="sub">${L.id?'Masih perlu mikir kapan belajar, kapan bikin prompt, dan kapan pakai library prompt buat eksekusi.':'You still need to figure out when to learn, when to generate prompts, and when to use the library for execution.'}</span>
+                <span class="pr">${separatePrice}</span>
+              </div>
+              <div class="box best">
+                <span class="ey">${L.id?'Ultimate Bundle':'Ultimate Bundle'}</span>
+                <span class="ttl">${L.id?'Sudah jadi sistem: masuk, pahami, bikin, lalu langsung gas':'Already a system: enter, understand, build, then execute immediately'}</span>
+                <span class="sub">${L.id?'Lebih cepat onboard, lebih hemat waktu eksperimen, dan hasilnya lebih konsisten dari hari pertama.':'Faster onboarding, less experimentation time, and more consistent output from day one.'}</span>
+                <span class="pr">${bundlePrice}</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="detail-section">
+            <h4>${L.id?'Bundle vs Beli Terpisah':'Bundle vs Separate Purchase'}</h4>
+            <table class="detail-compare">
+              <tr>
+                <th>${L.id?'Aspek':'Aspect'}</th>
+                <th>${L.id?'Terpisah':'Separate'}</th>
+                <th>${L.id?'Bundle':'Bundle'}</th>
+              </tr>
+              <tr>
+                <td>${L.id?'Total harga':'Total price'}</td>
+                <td class="bad">${separatePrice}</td>
+                <td class="good">${bundlePrice}</td>
+              </tr>
+              <tr>
+                <td>${L.id?'Integrasi sistem':'System integration'}</td>
+                <td class="bad">${L.id?'Manual':'Manual'}</td>
+                <td class="good">${L.id?'Terhubung':'Interlocked'}</td>
+              </tr>
+              <tr>
+                <td>${L.id?'Onboarding':'Onboarding'}</td>
+                <td class="bad">${L.id?'Harus susun flow sendiri':'You build the flow yourself'}</td>
+                <td class="good">${L.id?'Langsung jelas dari awal':'Clear from the start'}</td>
+              </tr>
+              <tr class="highlight">
+                <td>${L.id?'Hemat':'Savings'}</td>
+                <td class="bad">—</td>
+                <td class="good">${savings}</td>
+              </tr>
+            </table>
+          </div>
+
+          <div class="detail-section">
+            <h4>${L.id?'Alur Workflow':'Workflow Stack'}</h4>
+            <div class="detail-flow">
+              <div class="step"><span class="n">1</span><div class="t">${L.id?'Belajar':'Learn'}</div><div class="d">E-Book</div></div>
+              <div class="step"><span class="n">2</span><div class="t">${L.id?'Bikin':'Build'}</div><div class="d">Cheat Generator</div></div>
+              <div class="step"><span class="n">3</span><div class="t">${L.id?'Eksekusi':'Execute'}</div><div class="d">Prompt Pack 400+</div></div>
+              <div class="step"><span class="n">4</span><div class="t">${L.id?'Hasil':'Output'}</div><div class="d">${L.id?'Visual premium':'Premium visuals'}</div></div>
+            </div>
+          </div>
+
+          <div class="detail-kpi-grid">
+            <div class="detail-kpi"><div class="num">3-in-1</div><div class="lbl">${L.id?'Produk':'Products'}</div></div>
+            <div class="detail-kpi"><div class="num">150+</div><div class="lbl">${L.id?'Halaman':'Pages'}</div></div>
+            <div class="detail-kpi"><div class="num">400+</div><div class="lbl">${L.id?'Prompt':'Prompts'}</div></div>
+            <div class="detail-kpi"><div class="num">${savingsPct}</div><div class="lbl">${L.id?'Hemat':'Saved'}</div></div>
+          </div>
+        </div>
+
+        <div class="detail-tab-panel" data-panel="ben">
+          <div class="detail-section">
+            <h4>${L.id?'Benefit Eksklusif':'Exclusive Benefits'}</h4>
+            <div class="detail-badges">
+              <span class="detail-badge">${L.id?'Akses Instan':'Instant Access'}</span>
+              <span class="detail-badge">${L.id?'Tanpa Langganan':'No Subscription'}</span>
+              <span class="detail-badge">${L.id?'Update Sistem':'System Updates'}</span>
+              <span class="detail-badge">${L.id?'Support Teknis':'Tech Support'}</span>
+            </div>
+            <div class="detail-benefit-grid">
+              <div class="detail-benefit-card"><div class="ic">✦</div><div class="tx">${L.id?'Bisa tanya hal terkait prompt langsung ke sisi teknis Prompt Engineering Team Aurelea':'Ask prompt-related technical questions directly to the Aurelea Prompt Engineering Team'}</div></div>
+              <div class="detail-benefit-card"><div class="ic">↻</div><div class="tx">${L.id?'Akses update Cheat System yang terus disempurnakan':'Access Cheat System updates as the system keeps improving'}</div></div>
+              <div class="detail-benefit-card"><div class="ic">⛓</div><div class="tx">${L.id?'Sistem yang saling nyambung dari belajar sampai eksekusi':'One connected workflow from learning to execution'}</div></div>
+              <div class="detail-benefit-card"><div class="ic">⚡</div><div class="tx">${L.id?'Lebih hemat waktu eksperimen dan trial-error':'Save experimentation and trial-and-error time'}</div></div>
+              <div class="detail-benefit-card"><div class="ic">✎</div><div class="tx">${L.id?'Bikin prompt custom lebih cepat dan lebih rapi':'Create custom prompts faster and with cleaner structure'}</div></div>
+              <div class="detail-benefit-card"><div class="ic">▤</div><div class="tx">${L.id?'Library prompt siap pakai untuk banyak kebutuhan visual':'Ready-to-use prompt library for many visual needs'}</div></div>
+              <div class="detail-benefit-card"><div class="ic">◈</div><div class="tx">${L.id?'Output lebih konsisten untuk konten pribadi maupun klien':'More consistent output for personal and client work'}</div></div>
+              <div class="detail-benefit-card"><div class="ic">⟶</div><div class="tx">${L.id?'Akses langsung, tanpa langganan':'Instant access, no subscription'}</div></div>
+              <div class="detail-benefit-card"><div class="ic">◎</div><div class="tx">${L.id?'Kejelasan workflow — tahu persis langkah berikutnya':'Workflow clarity — always know the next step'}</div></div>
+              <div class="detail-benefit-card"><div class="ic">⇉</div><div class="tx">${L.id?'Onboarding cepat — bisa mulai eksekusi di hari yang sama':'Fast onboarding — start executing on the same day'}</div></div>
+              <div class="detail-benefit-card"><div class="ic">♾</div><div class="tx">${L.id?'Reuse prompt & sistem lintas project tanpa bikin ulang':'Reuse prompts & system across projects without rebuilding'}</div></div>
+              <div class="detail-benefit-card"><div class="ic">◐</div><div class="tx">${L.id?'Konsistensi saat scaling produksi konten':'Consistency when scaling content production'}</div></div>
+            </div>
+          </div>
+
+          <div class="detail-section">
+            <h4>${L.id?'Rangkuman Nilai':'Value Summary'}</h4>
+            <div class="detail-kpi-grid">
+              <div class="detail-kpi"><div class="num">${separatePrice}</div><div class="lbl">${L.id?'Nilai Asli':'Original Value'}</div></div>
+              <div class="detail-kpi"><div class="num">${bundlePrice}</div><div class="lbl">${L.id?'Harga Bundle':'Bundle Price'}</div></div>
+              <div class="detail-kpi"><div class="num">${savings}</div><div class="lbl">${L.id?'Hemat':'Saved'}</div></div>
+            </div>
+          </div>
+        </div>`;
+      }
+    }
+  };
+
+  const overlay=document.getElementById('detailOverlay');
+  const inner=document.getElementById('detailInner');
+  let currentKey=null;
+
+  function isID(){
+    return (document.documentElement.getAttribute('data-lang') || 'id') === 'id';
+  }
+
+  function render(key){
+    const d=D[key];
+    if(!d)return;
+
+    const L={id:isID(),en:!isID()};
+    const title=L.id?d.title.id:d.title.en;
+    const eyebrow=L.id?d.eyebrow.id:d.eyebrow.en;
+    const lead=L.id?d.lead.id:d.lead.en;
+    const price=L.id?d.price.id:d.price.en;
+    const cta=L.id?d.cta.id:d.cta.en;
+
+    inner.innerHTML=`
+      <div class="detail-head">
+        <div class="detail-eyebrow">${eyebrow}</div>
+        <h3 class="detail-title">${title}</h3>
+        <p class="detail-lead">${lead}</p>
+      </div>
+      ${typeof d.body === 'function' ? d.body(L) : ''}
+      <div class="detail-cta-wrap">
+        <div class="prc"><small>${L.id?'Harga':'Price'}</small>${price}</div>
+        <button class="detail-cta" data-buy="${d.modal}">${cta}</button>
+      </div>`;
+
+    requestAnimationFrame(()=>{
+      inner.querySelectorAll('.detail-bar .fl').forEach(el=>{
+        el.style.width=(el.dataset.w || '0') + '%';
+      });
+    });
+
+    inner.querySelectorAll('.detail-tab').forEach(btn=>{
+      btn.addEventListener('click',(e)=>{
+        e.stopPropagation();
+        const id=btn.dataset.tab;
+        inner.querySelectorAll('.detail-tab').forEach(b=>b.classList.toggle('active',b===btn));
+        inner.querySelectorAll('.detail-tab-panel').forEach(p=>p.classList.toggle('active',p.dataset.panel===id));
+      });
+    });
+
+    const ctaBtn=inner.querySelector('[data-buy]');
+    if(ctaBtn){
+      ctaBtn.addEventListener('click',(e)=>{
+        e.stopPropagation();
+        closeDetail();
+        if(typeof window.openModal==='function') window.openModal(ctaBtn.dataset.buy);
+      });
+    }
+  }
+
+  window.openDetail=function(key,ev){
+    if(ev){
+      ev.stopPropagation();
+      ev.preventDefault();
+    }
+    currentKey=key;
+    render(key);
+    overlay.classList.add('open');
+    overlay.setAttribute('aria-hidden','false');
+    document.body.classList.add('detail-lock');
+  };
+
+  window.closeDetail=function(){
+    overlay.classList.remove('open');
+    overlay.setAttribute('aria-hidden','true');
+    document.body.classList.remove('detail-lock');
+    currentKey=null;
+  };
+
+  overlay.addEventListener('click',(e)=>{
+    if(e.target===overlay) closeDetail();
+  });
+
+  document.addEventListener('keydown',(e)=>{
+    if(e.key==='Escape' && overlay.classList.contains('open')) closeDetail();
+  });
+
+  const mo=new MutationObserver(()=>{
+    if(currentKey) render(currentKey);
+  });
+  mo.observe(document.documentElement,{attributes:true,attributeFilter:['data-lang']});
+
+  function injectButtons(){
+    const map={ebook:'ebook',cheat:'cheat',promptpack:'promptpack',paket2:'paket2'};
+
+    document.querySelectorAll('.product-card,.bundle-card.featured').forEach(card=>{
+      const onclick=card.getAttribute('onclick')||'';
+      const m=onclick.match(/openModal\(['"]([^'"]+)['"]\)/);
+      if(!m || !map[m[1]]) return;
+      const key=map[m[1]];
+
+      if(card.querySelector('.desc-btn')) return;
+
+      const btn=document.createElement('button');
+      btn.className='desc-btn';
+      btn.type='button';
+      btn.innerHTML=`
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"/>
+          <line x1="12" y1="16" x2="12" y2="12"/>
+          <line x1="12" y1="8" x2="12.01" y2="8"/>
+        </svg>
+        <span class="txt-id">Deskripsi</span><span class="txt-en">Description</span>
+      `;
+      btn.addEventListener('click',(e)=>{
+        e.stopPropagation();
+        e.preventDefault();
+        window.openDetail(key,e);
+      });
+
+      const footer=card.querySelector('.product-card-footer');
+      if(footer){
+        footer.parentNode.insertBefore(btn,footer.nextSibling);
+      }else{
+        const body=card.querySelector('.bundle-card-body,.product-card-body,.card-body') || card;
+        body.appendChild(btn);
+      }
+    });
+
+    const bundle=document.querySelector('.bundle-card.featured');
+    if(false && bundle && !bundle.querySelector('.bundle-flag')){
+      const flag=document.createElement('div');
+      flag.className='bundle-flag';
+      flag.innerHTML='<span class="txt-id">Flagship</span><span class="txt-en">Flagship</span>';
+      bundle.appendChild(flag);
+
+      const shimmer=document.createElement('div');
+      shimmer.className='bundle-shimmer';
+      bundle.appendChild(shimmer);
+    }
+
+    if(bundle && !bundle.querySelector('.bundle-premium-meta')){
+      const meta=document.createElement('div');
+      meta.className='bundle-premium-meta';
+      meta.innerHTML=`
+        <span class="bundle-premium-pill"><span class="txt-id">3 Produk</span><span class="txt-en">3 Products</span></span>
+        <span class="bundle-premium-pill"><span class="txt-id">Hemat Maksimal</span><span class="txt-en">Max Savings</span></span>
+        <span class="bundle-premium-pill"><span class="txt-id">Sistem Lengkap</span><span class="txt-en">Complete System</span></span>
+      `;
+      const target=bundle.querySelector('.bundle-card-body,.product-card-body,.card-body') || bundle;
+      target.appendChild(meta);
+    }
+  }
+
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',injectButtons);
+  }else{
+    injectButtons();
+  }
+})();
+</script>
+<!-- ============================================================
+     END AURELEA DETAIL POPUP MODULE
+     ============================================================ -->
+<style id="ubn3-final-kill">
+/* nuclear override — must win against every prior rule */
+html body .bundle-grid .bundle-card.featured,
+html body .bundle-grid .bundle-card.featured:hover{
+  box-shadow:0 60px 180px rgba(0,0,0,.65),0 0 100px rgba(59,189,214,.08) !important;
+  border:1px solid rgba(59,189,214,.25) !important;
+  overflow:hidden !important;
+  overflow-x:clip !important;
+  overflow-y:clip !important;
+}
+html body .bundle-grid .bundle-card.featured::before,
+html body .bundle-grid .bundle-card.featured::after{
+  content:none !important;
+  display:none !important;
+  background:none !important;
+  border:0 !important;
+  box-shadow:none !important;
+}
+html body .bundle-grid .bundle-card.featured .bundle-img-wrap{
+  padding-bottom:56.25% !important;
+  overflow:hidden !important;
+  background:transparent !important;
+  border:0 !important;
+}
+html body .bundle-grid .bundle-card.featured .bundle-img-wrap::before,
+html body .bundle-grid .bundle-card.featured .bundle-img-wrap::after{
+  content:none !important;
+  display:none !important;
+  background:none !important;
+  border:0 !important;
+}
+html body .bundle-grid .bundle-card.featured,
+html body .bundle-grid .bundle-card.featured *{
+  scrollbar-width:none !important;
+}
+html body .bundle-grid .bundle-card.featured::-webkit-scrollbar,
+html body .bundle-grid .bundle-card.featured *::-webkit-scrollbar{
+  display:none !important;
+  height:0 !important;
+  width:0 !important;
+  background:transparent !important;
+}
+</style>
 </body>
 </html>
